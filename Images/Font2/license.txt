@@ -1,0 +1,6 @@
+Because these image files are used to display text, they can be treated as a
+"font."  As such, the files and the images they represent are treated
+differently by copyright law.  I have chosen to release them into the public
+domain: You are free to distribute, modify, and use these images if you so
+wish, and it is not necessary that you credit me.
+ - Philip Pavlick, December 2016

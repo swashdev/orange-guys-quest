@@ -1,0 +1,71 @@
+This is a brief guide to editing the Orange Quest level file.
+
+Levels are stored in a plaintext file (orange-levels by default) which is then
+read by the program and interpreted into level data.
+
+Although the Orange Quest game itself doesn't work on a grid-based system, the
+level generation code does.  This is why everything ends up looking so square
+in the game itself.  The reason for this is that each character in the level
+file corresponds to an item in the level, whether it's a wall, a door, a key,
+or whatever.
+
+Levels are split up first into lines, which represent y coordinates on the
+grid, and then into characters, which represent x coordinates.  What this
+means is that each line in the code can be as long as you can reasonably
+expect one to be, but the game will not start placing items under that line
+until you start a new line in the text file.
+
+Levels are separated by a line that consists only of a semicolon.  An empty
+line won't do because the level generator is expecting empty lines and many of
+the existing levels use them already.  Adding a semicolon at the end of a line
+with something on it won't work either, as the semicolon will simply be
+ignored.
+
+The following symbols are recognized as valid by the level generator:
+ MSPKREA12346789!@#$^&*(abcdefghijklmnopqrstuvwxyzD
+
+Any other symbol will be replaced with a space.
+
+Every level must contain *one* P, *one* E or A, and at least one W.
+
+P marks the starting point for the Player character.
+
+E marks the Exit.
+A marks a special Exit (really it's just a different sprite) for the end game.
+
+W marks a Wall.
+
+M marks a Monster.
+
+S marks a set of Spikes.
+
+K marks a Key.
+
+R marks a golden key (originally a Red key).
+
+D marks a secret level exit, which are used during testing.
+
+The lower letters a-z will simply place a letter in the map data.  These are
+the messages you see during the first few levels.
+
+12346789 and the symbols !@#$^&*( produce doors.  Which number or symbol you
+choose affects how the door will open.  The numbers 12346789 mark regular
+doors; the symbols !@#$^&*( mark hidden doors.  Note that neither 5 nor % mark
+doors, as these doors would not open.
+
+The resting place of doors after opening, given 0 as their starting point:
+
+       8/*
+        |
+    7/& | 9/(
+      \ | /
+       \|/        Notice that the numbers correspond to directions on the
+ 4/$----0----6/^  number pad, and the symbols correspond to the symbols which
+       /|\        share the same number on the number line.
+      / | \
+    1/! | 3/#
+        |
+       2/@
+
+Until Orange Guy's Quest becomes more complex as a game, that's all there is
+to the levels.  Have fun.

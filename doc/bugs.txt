@@ -1,0 +1,27 @@
+ -- Known Bugs --
+The program opens with two SyntaxWarnings for unknown reasons.  These are
+output by the Python interpreter before the license information comes up.
+Since adding command-line options the number of SyntaxWarnings has gone up,
+again for unknown reasons.  At the end of the day, this is just what I get for
+using Python.
+
+Monsters sometimes colide with doors that are above or below them when the
+player is moving vertically.  Since the colission detection is handled by
+Pygame, I don't know why this is occurring and can't fix it.  This is a rare
+bug which I've only observed in one of the included levels, but it happens so
+early in the game that new players may be caught off-guard.
+
+ -- Not Bugs --
+
+Monsters are not subject to gravity and don't colide with walls.  They were
+never programmed to do so, so this is not a "bug," but rather an oversight.
+For the most part the game makes an earnest attempt to hide this bug by simply
+never placing monsters against walls or over holes, but in future this will
+need to be fixed.
+
+Moving platforms do not move the player with them.  They were never programmed
+to so so, largely because they were never implemented in the game.  Hopefully
+both issues will be addressed in future releases.
+
+Players and monsters walk backwards.  This is not a bug.  This is just
+laziness.

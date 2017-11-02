@@ -1,0 +1,34 @@
+Changes between Orange Guy's Quest version 1.0 and 1.1:
+
+ - WINDOWS option added to allow users to define whether they want to use a
+   backslash for their system.
+ - Image sprites are now loaded into memory rather than being loaded once for
+   every single time they are needed.
+ - Image sprites are not loaded if they are not needed (user chooses the
+   'Ancient' graphics setting)
+ - The game no longer attempts to randomize enemy sprites, as they were not
+   randomized in the final version of 1.0 and they are not randomized now.
+ - The game no longer ends with an Index Exception.
+ - Removed some of the attrocious final levels.
+ - The location of the secret exit can no longer be discovered by observing
+   where the player's sprite is clipped by it.
+ - The game now has a semi-proper ending involving finding a sword.
+ - Resetting the level no longer causes the level to reset several times.
+ - Dying no longer kills the game immediately.  Instead the player is
+   displayed having "died."
+ - Level 2, the first level where the player is likely to fall in a hole, now
+   instructs the player to use the BACKSPACE key to restart the level.
+ - Replaced the hideous font with a marginally less hideous font.
+ - Moved level storage into a plaintext file.
+ - LEVELFILE option added to allow users to direct the program to their own
+   customized level file.
+ - The doors in level 6 now open vertically upward, not at angles.
+ - extraLevels.txt restored to original functionality as a storage file for
+   extra levels not part of the final game.
+ - Added command line options.  See README.TXT.
+ - Added BIGPLAYER option to restore player hitbox to the original 16x16 square
+   from way back before 1.0 even had sprites.
+ - Images are now loaded on-the-fly as they are needed; the first time a
+   sprite appears in the game it is loaded into memory.
+ - New images for keys with proper transparency handling; old key sprites have
+   been preserved so that Version 1.0 displays them properly.
