@@ -11,6 +11,11 @@ Pygame, I don't know why this is occurring and can't fix it.  This is a rare
 bug which I've only observed in one of the included levels, but it happens so
 early in the game that new players may be caught off-guard.
 
+The bat is not being converted to a transparent sprite properly.  This may be
+because of the version of MS Paint I used to draw it.  Should consider using
+GIMP in the future to be sure that the image properties will be transferred
+from one sprite to another.  Further investigation required.
+
  -- Not Bugs --
 
 Monsters are not subject to gravity and don't colide with walls.  They were

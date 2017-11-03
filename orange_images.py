@@ -27,7 +27,7 @@ from pygame import image
 
 SPRITES = { "player":None,"key":None,"key2":None,"door":None,"spike":None, \
             "rat":None,"exit":None,"end":None,"dead":None,"goblin":None, \
-            "ghost":None,"skull":None \
+            "ghost":None,"skull":None,"bat":None \
           }
 ALPHA = { 'a':None, 'b':None, 'c':None, 'd':None, 'e':None, 'f':None, \
           'g':None, 'h':None, 'i':None, 'j':None, 'k':None, 'l':None, \
@@ -80,6 +80,8 @@ def get_image_link( key, d ):
     return il + "spike.png"
   if key == "rat":
     return il + "giantRat.png"
+  if key == "bat":
+    return il + "bat.png"
   if key == "exit":
     return il + "lvlExit.png"
   if key == "end":

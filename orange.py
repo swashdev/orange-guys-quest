@@ -260,17 +260,24 @@ class Mover(Wall):
             else:
                 self.direction=1
                 
-        dx=1*self.direction
+        dx = self.h * self.direction
+        dy = self.v * self.direction
 
         # If you collide with a wall, move out based on velocity
         for wall in walls:
             if wall.ID=="Door" and self.rect.colliderect(wall.rect):
                 if dx > 0: # Moving right; Hit the left side of the wall
                     self.rect.right = wall.rect.left
-                    self.direction=-1
+                    self.direction *= -1
                 if dx < 0: # Moving left; Hit the right side of the wall
                     self.rect.left = wall.rect.right
-                    self.direction=1
+                    self.direction *= -1
+                if dy > 0: # Moving down; Hit the top of the wall
+                    self.rect.bottom = wall.rect.top
+                    self.direction *= -1
+                if dy < 0:
+                    self.rect.top = wall.rect.bottom
+                    self.direction *= -1
             #if wall.ID=="Player" and self.rect.colliderect(wall.rect):
                 #wall.move(self.direction,1)
 
@@ -340,12 +347,18 @@ class Enemy(Mover):
             maximum=random.randrange(6)
         else:
             self.maxDiff=maximum
+        if type == "bat":
+          self.v = 1
+          self.h = 0
+        else:
+          self.v = 0
+          self.h = 1
         if not USERECTS:
-          if str( type ).lower() in ["rat","spike"]:
-              self.sprite = orange_images.get_sprite( type.lower(), d, DEBUG )
-          else:
+          if type == "random":
               self.sprite = orange_images.get_sprite( \
-                              random.choice( ["rat","spike"] ), d, DEBUG )
+                              random.choice( ["rat","bat"] ), d, DEBUG )
+          else:
+              self.sprite = orange_images.get_sprite( type.lower(), d, DEBUG )
 
 class Spike(Enemy):
     ID="spike"
@@ -455,6 +468,9 @@ class Level(object):
                       print "Event: Place player object at level start"
                 if col=="M":
                     mine_rect=Enemy(x,y,16,16,2,type="rat")
+                    walls.append(mine_rect)
+                if col=="B":
+                    mine_rect=Enemy(x,y,16,16,2,type="bat")
                     walls.append(mine_rect)
                 if col=="S":
                     spike=Spike(x,y,16,16,2,type="spike")
