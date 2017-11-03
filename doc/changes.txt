@@ -2,6 +2,11 @@ VERSION 1.002:
 
  - One of the doors in level 6 now opens diagonally in order to preserve the
    original challenge of the level.
+ - Finishing the last level no longer raises a SystemExit; no further
+   revisions to the code should use a SystemExit for anything other than a
+   bug kill.
+ - Ending the mainloop now displays a "quit message" (with the exception of
+   end-of-games caused by a SystemExit).
 
 Changes between Orange Guy's Quest version 1.0 and 1.1:
 

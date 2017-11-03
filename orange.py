@@ -525,6 +525,7 @@ Levels[0].create()
 #############
 
 running=True
+quitMsg = ""
 
 while running:
     global jumpDY
@@ -532,10 +533,9 @@ while running:
     clock.tick(60)
     
     for e in pygame.event.get():
-        if e.type == pygame.QUIT:
+        if e.type == pygame.QUIT or (e.type == pygame.KEYDOWN and e.key == pygame.K_ESCAPE):
             running = False
-        if e.type == pygame.KEYDOWN and e.key == pygame.K_ESCAPE:
-            running = False
+            quitMsg = "Thanks for playing! :-)"
         elif e.type == pygame.KEYDOWN and e.key == pygame.K_BACKSPACE:
             if DEBUG:
               print "Event: Level reset"
@@ -591,8 +591,10 @@ while running:
         else:
           # A special message if you've gotten the sword (the sword doesn't
           # exist yet in the game, so this just displays when you win)
-          print "Congratulations!  You've recovered the legendary sword of the Dragon King!"
-          raise SystemExit, "You've reached the end of the game.\nThanks for playing :-)"
+          running = False
+          quitMsg = "Congratulations!  You've recovered the legendary sword \
+of the Dragon King!\n\
+You've reached the end of the game.\nThanks for playing :-)"
     
     # Draw the scene
     screen.fill((0, 0, 0))
@@ -642,3 +644,5 @@ while running:
 
     if timeBuffer>0:
         timeBuffer-=1
+
+print quitMsg
