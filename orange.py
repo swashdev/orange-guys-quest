@@ -24,6 +24,10 @@
 # LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
+# 
+# Like most of the software that I write, this software has an additional
+# "careware clause."  If you like this software and would like to support the
+# creator, please read "letter.txt" (in this directory)
 
 #import os
 import sys
@@ -53,6 +57,10 @@ FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS\n \
 IN THE SOFTWARE.\n"
 
 q = raw_input("Type \"quit\" to exit now.  Press ENTER to continue.\n").lower()
+
+print "Like most of the software that I write, this software has an additional\n \
+\"careware clause.\"  If you like this software and would like to support the\n \
+creator, please read \"letter.txt\" (in this directory)"
 
 if( q == "quit" or q == "exit" or q == "\"quit\"" or q == "\"exit\"" ):
   raise SystemExit, "goodbye..."

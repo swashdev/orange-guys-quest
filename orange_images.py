@@ -17,6 +17,10 @@
 # LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
+# 
+# Like most of the software that I write, this software has an additional
+# "careware clause."  If you like this software and would like to support the
+# creator, please read "letter.txt" (in this directory)
 
 # Functions for loading images for Orange Guy's Quest
 from pygame import image
