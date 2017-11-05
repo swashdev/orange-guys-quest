@@ -1,44 +1,46 @@
-use the arrow keys
-to move
 WWDWWWWWWWWWWWWWWWWWWWWWW
 W                       W
 W                       W
 WP                     EW
 WWWWWWWWWWWWWWWWWWWWWWWWW
+"Use the arrow keys to move"
 ;
                                  WWWWWWWWW
-press up once                   W         WW
-to jump                       WW            W
+                                W         WW
+                              WW            W
  WDWWWWWWWWWWWWWWW WWWWWWWWWWW               WWWWWWWWWWWWWWWW
 W                 W
 WP                                      E
 WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW     WWWWWWWWWWWWWWWWWWWWW
-        press backspace to restart
+"Press UP to jump"
+"--Press BACKSPACE to restart"
 ;
                                        WWWWWWWWWWWW
                                        W           W
-press up twice                        W             W
-to double jump                       W               W
+                                      W             W
+                                     W               W
  WDWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW                 WWWWWWWWWWWWWWW
 W
 WP                                                E
 WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW          WWWWWWWWWWWWWWWWWWW
+"Press UP twice to double-jump"
 ;
-try double jumping in mid air
 WWWDWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
 WP
 WWWWWWWWWWWWWWWWWWWWWWW               E
                                      WW
+"Try double-jumping in mid-air"
 ;
                         WWWW
-            use keys  WW    W
-            to open  W       W
-      WW    doors   W        W
+                      WW    W
+                     W       W
+      WW            W        W
 WWWWWW  WWW WWWWWDWW          W
            W        P       KW W
 WWWWWWWWWWWWWWWWWWWWW       W WW
                    WW       8EW
                    WWWWWWWWWWWW
+"Use keys to open doors"
 ;
                                          WWWWWWWWW
                                         W         W
@@ -49,6 +51,7 @@ W                                 W    P                KW
 WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW W           WW
                                     W     9ME8    M     WW
                                      WWWWWWWWWWWWWWWWWWWWW
+"Watch out for giant rats!"
 ;
                                      W                                W
                                      W                                W
@@ -85,6 +88,7 @@ W
 WWW
    E
    W
+"Not all doors should be opened"
 ;
              M      M      M      M      M      M      M      M      M      M      M
 WWW7WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
@@ -114,6 +118,7 @@ W              W                                 W
 W          W                                    W
 WP    W
 WWW
+"Golden keys open secret doors"
 ;
 DWWW       WWWWWWWW
 W   WW  WW         W
