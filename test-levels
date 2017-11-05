@@ -3,7 +3,7 @@ test levels
 Wcollide W           WWWWWWWWW
 WP.............
 W$WWWWWWWWWWWW.      -
-W            ^.
+W   "Level Message"         ^.
 WWWWWWWWWWWWWW.  .
              W...M...    B
              WWWWWWWK.
@@ -11,4 +11,6 @@ WWWWWWWWWWWWWW.  .
                     W.       W$
                     WR...4...4E
                     WWWWWWWWWWW
+": This is a test level
+for Orange Guy's Quest"
 ;

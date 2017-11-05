@@ -154,6 +154,12 @@ end_rect=None
 
 lvlMessage=""
 
+# Important: See ``fonts/readme-proggy.txt'' for the Proggy license
+font = pygame.font.Font("fonts" + d + "ProggySquareSZ.ttf", 24)
+text = None
+textpos = None
+message_delay = 0
+
 # Sprite declarations:
 import orange_images
 
@@ -372,15 +378,26 @@ class Letter(Key):
 # Holds the level layout in a list of strings.
 class Level(object):
     level = []
-    #Message=""
+    Message=""
     def create(self):
         global walls,player,end_rect,lvlExit,end_rect_offset,tele_rect,camera
         if DEBUG:
           print "Work: Building level"
         # Parse the level string above. W = wall, E = exit
         x = y = 0
+        self.Message = ""
+        get_message = False
         for row in self.level:
             for col in row:
+                if get_message:
+                    if col == '\"':
+                        if DEBUG:
+                            print "Work: Message collection stopped... final \
+message:\n\"" + self.Message + "\""
+                        get_message = False
+                    else:
+                        self.Message += col
+                    continue
                 if col == "W":
                     Wall((x, y))
                 if col=="-":
@@ -480,21 +497,34 @@ class Level(object):
                 if col in ["a","b","c","d","e","f","g","h","i","j","k","l","m",\
                            "n","o","p","q","r","s","t","u","v","w","x","y","z"]:
                     alphabet=Letter((x,y), col)
-                x += 16
-            y += 16
-            x = 0
-        #font = pygame.font.Font(None, 12)
-        #text = font.render(self.Message, 1, (255, 255, 255))
-        #textpos = text.get_rect(centerx=screen.get_width()/2)
-        #background.blit(text, textpos)
-        #screen.blit(text,(player.rect.x,player.rect.y-100))
+                if col == '\"':
+                    if DEBUG:
+                        print "Work: Message found in level; collecting..."
+                    get_message = True
+                if not get_message:
+                    x += 16
+            if not get_message:
+                y += 16
+                x = 0
+
+            if len( self.Message ) > 0:
+                global text, textpos, message_delay, font
+                text = font.render(self.Message, 1, (255, 128, 0))
+                textpos = text.get_rect(centerx=screen.get_width()/2)
+                if len( self.Message ) > 10:
+                    message_delay = 500 + (10 * (len( self.Message ) - 10))
+                else:
+                    message_delay = 500
+            else:
+                global text
+                text = None
             
-    def __init__(self,lObjects):#,Message=""):
+    def __init__(self,lObjects,Message=""):
         global Levels
         self.level=lObjects
         if DEBUG:
           print "Create: Level object"
-        #self.Message=Message
+        self.Message=Message
 
 # Returns a new rect for drawing by the camera's offset.
 def translate(rect):
@@ -544,7 +574,7 @@ running=True
 quitMsg = ""
 
 while running:
-    global jumpDY
+    global jumpDY,text,message_delay
     
     clock.tick(60)
     
@@ -656,7 +686,13 @@ You've reached the end of the game.\nThanks for playing :-)"
         else:
           pygame.draw.rect(screen,(255,128,0), \
           pygame.Rect(player.rect.x, player.rect.y+8, 16, 8))
+
+    if text != None and message_delay > 0:
+      screen.blit(text,textpos)
+      message_delay -= 1
+
     pygame.display.flip()
+
 
     if timeBuffer>0:
         timeBuffer-=1

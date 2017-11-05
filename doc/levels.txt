@@ -24,8 +24,6 @@ ignored.
 The following symbols are recognized as valid by the level generator:
  MSPKREA12346789!@#$^&*(abcdefghijklmnopqrstuvwxyzD
 
-Any other symbol will be replaced with a space.
-
 Every level must contain *one* P, *one* E or A, and at least one W.
 
 P marks the starting point for the Player character.
@@ -47,6 +45,10 @@ D marks a secret level exit, which are used during testing.
 
 The lower letters a-z will simply place a letter in the map data.  These are
 the messages you see during the first few levels.
+
+To add a message to the level data, place the message in-between two
+double-quotes (e.g. "This is a level message") and the message (without the
+quotes) will be displayed at the top of the screen when the level starts.
 
 12346789 and the symbols !@#$^&*( produce doors.  Which number or symbol you
 choose affects how the door will open.  The numbers 12346789 mark regular

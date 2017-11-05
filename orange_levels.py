@@ -86,9 +86,9 @@ def get_levels( level_file_path, DEBUG = False ):
                   level_has_exit = True
               elif ch == 'W':
                   level_has_walls = True
-              elif ch not in " abcdefghijklmnopqrstuvwxyzSM78946123!@#$^&*(":
-                  # Treat all invalid characters as a space
-                  levels[index].replace( ch, ' ' )
+              #elif ch not in " abcdefghijklmnopqrstuvwxyzSM78946123!@#$^&*(":
+              #    # Treat all invalid characters as a space
+              #    levels[index].replace( ch, ' ' )
               if level_has_player and level_has_exit and level_has_walls:
                   character = -1
                   break

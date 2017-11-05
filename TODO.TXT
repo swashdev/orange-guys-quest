@@ -1,7 +1,6 @@
 TODO file for Orange Guy's Quest version 1.1
 
  - Refine the code further so that redundant work isn't being done.
- - Find out why the program hates my global variables so much.
- - Find a better system for displaying messages (some commented-out messages
-   appear in the source code but have been erased from the level data--I'm
-   thinking about adding a message box up in the corner)
+ - Find out why the program hates my global variables so much.  (It might be
+   because the global variables are being declared before the function
+   declares them, but I'm not sure what Python expects me to do about it)
