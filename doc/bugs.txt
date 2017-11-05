@@ -16,6 +16,12 @@ because of the version of MS Paint I used to draw it.  Should consider using
 GIMP in the future to be sure that the image properties will be transferred
 from one sprite to another.  Further investigation required.
 
+A test run on Linux revealed that attempting to end the game by pressing
+ESCAPE or by completing all of the levels will end the program but will keep
+Python running.  A "kill" command was required to get rid of the Python
+process, even on previous versions which raised a SystemExit command to end
+the game.  Further investigation required.
+
  -- Not Bugs --
 
 Monsters are not subject to gravity and don't colide with walls.  They were
