@@ -647,8 +647,10 @@ You've reached the end of the game.\nThanks for playing :-)"
     for wall in walls:
 
         # Translate the object's rect to the camera's offset for drawing
-        if wall.rect.right>=0 and wall.rect.left<=640 \
-           and wall.rect.bottom>=0 and wall.rect.top<=480:
+        if wall.rect.right >= camera.left \
+        and wall.rect.left <= camera.right \
+        and wall.rect.bottom >= camera.top \
+        and wall.rect.top <= camera.bottom:
             draw=True
         else:
             draw=False
