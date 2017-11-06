@@ -45,6 +45,8 @@ command line.  All of these will override the default configuration (see below)
  -D                     shows Debug output in the terminal
 
  --levels               The next argument will be the path to a level file
+ --scale                The next argument will be a number by which the
+                        display size is multiplied.  THIS MAY CAUSE SLOWDOWN!
  
 For example, if I want my original block-style graphics with debug output and
 choosing levels from a fresh batch I've just cooked up, I can use this command:
@@ -80,3 +82,7 @@ does not exist, the game will complain at you.  You can also specify what
 level file to use in the command line options (see above), but this
 config flag has been included for those times when you just really don't feel
 like typing in the same file name over and over again.
+
+SCALE specifies an integer number (1 by default) by which the game's size is
+multiplied.  CHANGING THIS VALUE MAY CAUSE SLOWDOWN.  Any number smaller than
+or equal to 1 will not cause any change in game size.

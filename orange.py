@@ -106,7 +106,7 @@ while len( vars ) > 0:
     USERECTS = False
   elif opt == "-b" or opt == '-a':
     USERECTS = True
-  elif opt == "-s" or opt == "--scale":
+  elif opt == "--scale":
     if len(vars) > 0:
       try:
         SCALE = int( vars.pop(0) )
@@ -700,9 +700,9 @@ You've reached the end of the game.\nThanks for playing :-)"
           pygame.Rect(player.rect.x, player.rect.y+8, 16, 8))
 
     if SCALE > 1:
-      gamewin.blit( pygame.transform.smoothscale( screen, \
-                                                 (640 * SCALE, 480 * SCALE) \
-                                                ), \
+      gamewin.blit( pygame.transform.scale( screen, \
+                                           (640 * SCALE, 480 * SCALE) \
+                                          ), \
                     (0, 0)
                   )
     else:
