@@ -68,27 +68,30 @@ if( q == "quit" or q == "exit" or q == "\"quit\"" or q == "\"exit\"" ):
 ##########################
 # Configuration options: #
 ##########################
-# WINDOWS changes whether \ or / are used for directory trees.  You shouldn't
-# need to change this unless your system is only able to use \.  Most versions
-# of windows will run just fine with only /.
-WINDOWS = False
 # Set USERECTS to True to force the old-school Atari2600-style blocky
 # graphics or False to use the Retro pixel graphics.  Any other value will
 # give a prompt.
 # Can be set to False with -r or -s, or True with -a or -b, in the command line
 USERECTS = False
-# Set BIGPLAYER to True to restore the player's original large hitbox.  This is
-# not recommended, but I thought people might get a chuckle out of this.
-# Can be set with -B in the command line
-BIGPLAYER = False
 # Set LEVELPATH to the file where you have your levels saved.  By default,
 # this is ./orange-levels.  Don't set it to ./extraLevels.txt because those
 # levels are awful.
 # Can be set with -l <file> or --level <file> in the command line
 LEVELPATH = "orange-levels"
+# Set SCALE to an integer greater than one to cause the game to be scaled up
+# by that number (e.g. 2 for 2x stretch)
+SCALE = 1
 # Set this to True if you want annoying debug messages in your console.
 # Can be set with -D in the command line
 DEBUG = False
+# WINDOWS changes whether \ or / are used for directory trees.  You shouldn't
+# need to change this unless your system is only able to use \.  Most versions
+# of windows will run just fine with only /.
+WINDOWS = False
+# Set BIGPLAYER to True to restore the player's original large hitbox.  This is
+# not recommended, but I thought people might get a chuckle out of this.
+# Can be set with -B in the command line
+BIGPLAYER = False
 
 ##########################
 # Pre-code configuration #
@@ -97,12 +100,20 @@ DEBUG = False
 vars = sys.argv
 vars.pop(0)
 while len( vars ) > 0:
-  global USERECTS,LEVELPATH,BIGPLAYER,DEBUG
+  global USERECTS,LEVELPATH,BIGPLAYER,DEBUG,SCALE
   opt = vars.pop(0)
   if opt == "-r":
     USERECTS = False
   elif opt == "-b" or opt == '-a':
     USERECTS = True
+  elif opt == "-s" or opt == "--scale":
+    if len(vars) > 0:
+      try:
+        SCALE = int( vars.pop(0) )
+      except:
+        raise SystemExit, "Unable to set scale parameter: Must be an integer."
+    else:
+      raise SystemExit, "Not enough parameters for --scale: Must supply an integer."
   elif opt == "-B":
     BIGPLAYER = True
   elif opt == "-D":
@@ -131,7 +142,8 @@ pygame.init()
 
 # Set up the display
 pygame.display.set_caption("Orange Guy's Quest!!")
-screen = pygame.display.set_mode((640, 480))
+gamewin = pygame.display.set_mode( (640 * SCALE, 480 * SCALE) )
+screen = pygame.Surface( (640, 480) )
 if DEBUG:
   print "Create: PyGame screen"
 
@@ -155,7 +167,7 @@ end_rect=None
 lvlMessage=""
 
 # Important: See ``fonts/readme-proggy.txt'' for the Proggy license
-font = pygame.font.Font("fonts" + d + "ProggySquareSZ.ttf", 24)
+font = pygame.font.Font("fonts" + d + "ProggySquareSZ.ttf", 24 * SCALE)
 text = None
 textpos = None
 message_delay = 0
@@ -510,7 +522,7 @@ message:\n\"" + self.Message + "\""
             if len( self.Message ) > 0:
                 global text, textpos, message_delay, font
                 text = font.render(self.Message, 1, (255, 128, 0))
-                textpos = text.get_rect(centerx=screen.get_width()/2)
+                textpos = text.get_rect(centerx=gamewin.get_width()/2)
                 if len( self.Message ) > 10:
                     message_delay = 500 + (10 * (len( self.Message ) - 10))
                 else:
@@ -687,8 +699,17 @@ You've reached the end of the game.\nThanks for playing :-)"
           pygame.draw.rect(screen,(255,128,0), \
           pygame.Rect(player.rect.x, player.rect.y+8, 16, 8))
 
+    if SCALE > 1:
+      gamewin.blit( pygame.transform.smoothscale( screen, \
+                                                 (640 * SCALE, 480 * SCALE) \
+                                                ), \
+                    (0, 0)
+                  )
+    else:
+      gamewin.blit( screen, (0, 0) )
+
     if text != None and message_delay > 0:
-      screen.blit(text,textpos)
+      gamewin.blit(text,textpos)
       message_delay -= 1
 
     pygame.display.flip()
