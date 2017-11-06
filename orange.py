@@ -131,7 +131,7 @@ pygame.init()
 
 # Set up the display
 pygame.display.set_caption("Orange Guy's Quest!!")
-screen = pygame.display.set_mode((640, 480))
+screen = pygame.display.set_mode((960, 540))
 if DEBUG:
   print "Create: PyGame screen"
 
