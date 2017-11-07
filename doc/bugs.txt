@@ -22,6 +22,9 @@ Python running.  A "kill" command was required to get rid of the Python
 process, even on previous versions which raised a SystemExit command to end
 the game.  Further investigation required.
 
+The player might teleport to the other side of the wall if they collide with
+it while standing on a moving platform.
+
  -- Not Bugs --
 
 Monsters are not subject to gravity and don't colide with walls.  They were
