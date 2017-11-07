@@ -193,7 +193,9 @@ class Player(object):
                 elif wall.ID in ["Enemy","spike"]:
                     if DEBUG:
                       print "Event: Player killed by "+wall.ID
-                    print "You are dead.  Press BACKSPACE to restart."
+                    global text, textpos
+                    text = font.render("You are dead.  Press BACKSPACE to restart.", 1, (255, 128, 0))
+                    textpos = text.get_rect(centerx=screen.get_width()/2)
                     self.dead = True
                 elif wall.ID=="Key":
                     for object in walls:
@@ -661,7 +663,11 @@ You've reached the end of the game.\nThanks for playing :-)"
           pygame.draw.rect(screen,(255,128,0), \
           pygame.Rect(player.rect.x, player.rect.y+8, 16, 8))
 
-    if text != None and message_delay > 0:
+    if player.dead:
+      # We are guaranteed by the player's `update' function that `text' here
+      # has been set, as has `textpos'
+      screen.blit( text, textpos )
+    elif text != None and message_delay > 0:
       screen.blit(text,textpos)
       message_delay -= 1
 
