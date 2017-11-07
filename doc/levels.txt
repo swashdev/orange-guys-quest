@@ -22,7 +22,7 @@ with something on it won't work either, as the semicolon will simply be
 ignored.
 
 The following symbols are recognized as valid by the level generator:
- MSPKREA12346789!@#$^&*(abcdefghijklmnopqrstuvwxyzD
+ MSPKREA12346789!@#$^&*(abcdefghijklmnopqrstuvwxyzD-+<>
 
 Every level must contain *one* P, *one* E or A, and at least one W.
 
@@ -42,6 +42,15 @@ K marks a Key.
 R marks a golden key (originally a Red key).
 
 D marks a secret level exit, which are used during testing.
+
+<, >, -, and + mark moving walls.
+  < is a wall that moves right and then left...
+  > is a wall that moves left and then right...
+  - is a wall that moves down and then up...
+  + is a wall that moves up and then down.
+    Moving walls can carry the player around but can also push them off of
+    ledges.  The collission detection for a moving wall can be a little fiddly
+    (especially when moving vertically) so be cautious when using them.
 
 The lower letters a-z will simply place a letter in the map data.  These are
 the messages you see during the first few levels.

@@ -393,10 +393,14 @@ message:\n\"" + self.Message + "\""
                     continue
                 if col == "W":
                     Wall((x, y))
-                if col=="-":
+                if col==">":
                     Mover((x,y),(1,0))
-                if col=="|":
+                if col=="<":
+                    Mover((x,y),(-1,0))
+                if col=="-":
                     Mover((x,y),(0,1))
+                if col=="+":
+                    Mover((x,y),(0,-1))
                 if col == "E":
                     end_rect = pygame.Rect(x, y, 16, 16)
                     if not USERECTS:
