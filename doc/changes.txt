@@ -1,3 +1,9 @@
+VERSION 1.003:
+
+ - The player now moves when standing on a moving platform.
+ - Map editors can now specify a direction for moving platforms to be moving
+   in when the map spawns, for the purposes of level design and platforming.
+
 VERSION 1.002:
 
  - One of the doors in level 6 now opens diagonally in order to preserve the
