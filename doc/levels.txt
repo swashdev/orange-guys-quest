@@ -49,8 +49,10 @@ D marks a secret level exit, which are used during testing.
   - is a wall that moves down and then up...
   + is a wall that moves up and then down.
     Moving walls can carry the player around but can also push them off of
-    ledges.  The collission detection for a moving wall can be a little fiddly
-    (especially when moving vertically) so be cautious when using them.
+    ledges.  WARNING: The collission detection for the moving walls is very
+    fiddly and might cause the player to teleport on top of random platforms
+    that they make you touch or move through walls.  Use these walls
+    sparingly.
 
 The lower letters a-z will simply place a letter in the map data.  These are
 the messages you see during the first few levels.
