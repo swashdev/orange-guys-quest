@@ -35,35 +35,7 @@ import random
 import pygame
 from pygame.locals import *
 
-print "Welcome to Orange Guy's Quest, version 1.1, by Philip Pavlick.\n \
-Copyright (c) 2011-2017 Philip Pavlick\n \
-\n \
-Permission is hereby granted, free of charge, to any person obtaining a\n \
-copy of this software and associated documentation files (the \"Software\"),\n \
-to deal in the Software without restriction, including without limitation\n \
-the rights to use, copy, modify, merge, publish, distribute, sublicense,\n \
-and/or sell copies of the Software, and to permit persons to whom the\n \
-Software is furnished to do so, subject to the following conditions:\n \
-\n \
-The above copyright notice and this permission notice shall be included in\n \
-all copies or substantial portions of the Software.\n \
-\n \
-THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\n \
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\n \
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\n \
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\n \
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING\n \
-FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS\n \
-IN THE SOFTWARE.\n"
-
-q = raw_input("Type \"quit\" to exit now.  Press ENTER to continue.\n").lower()
-
-print "Like most of the software that I write, this software has an additional\n \
-\"careware clause.\"  If you like this software and would like to support the\n \
-creator, please read \"letter.txt\" (in this directory)"
-
-if( q == "quit" or q == "exit" or q == "\"quit\"" or q == "\"exit\"" ):
-  raise SystemExit, "goodbye..."
+print "Welcome to Orange Guy's Quest, version 1.1, by Philip Pavlick."
 
 ##########################
 # Configuration options: #
