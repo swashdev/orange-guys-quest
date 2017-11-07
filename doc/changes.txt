@@ -8,6 +8,11 @@ VERSION 1.002:
  - Ending the mainloop now displays a "quit message" (with the exception of
    end-of-games caused by a SystemExit).
  - New "bat" enemy added.
+ - Game's default display size has been changed to 960x540
+ - The game now has a new in-game message system, making the physical letters
+   that used to float around the levels obsolete
+ - New training levels to smooth the learning curve for new players
+ - The "You are dead" message now displays in-game rather than in the terminal
 
 Changes between Orange Guy's Quest version 1.0 and 1.1:
 

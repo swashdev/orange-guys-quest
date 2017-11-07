@@ -10,10 +10,9 @@ WWWWWWWWWWWWWWWWWWWWWWWWW
                               WW            W
  WDWWWWWWWWWWWWWWW WWWWWWWWWWW               WWWWWWWWWWWWWWWW
 W                 W
-WP                                      E
-WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW     WWWWWWWWWWWWWWWWWWWWW
+WP                                WWWWW E
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW    WWWWWWWWWWWWWWWWWWWWWW
 "Press UP to jump"
-"--Press BACKSPACE to restart"
 ;
                                        WWWWWWWWWWWW
                                        W           W
@@ -23,13 +22,28 @@ WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW     WWWWWWWWWWWWWWWWWWWWW
 W
 WP                                                E
 WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW          WWWWWWWWWWWWWWWWWWW
+                                       WW         W
+                                       W          W
+                                       WWWWWWWWWWWW
 "Press UP twice to double-jump"
 ;
 WWWDWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
 WP
 WWWWWWWWWWWWWWWWWWWWWWW               E
-                                     WW
+                      W              WW
+                      WW              W
+                       W              W
+                       W               W
+                       W               W
+                       WWWWWWWWWWWWWWWWW
 "Try double-jumping in mid-air"
+;
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+W            W                  WD
+W                               E
+W P                            WW
+WWWWWWWWWWWWWWWWWWWWWWWWW
+"Press BACKSPACE to restart"
 ;
                         WWWW
                       WW    W

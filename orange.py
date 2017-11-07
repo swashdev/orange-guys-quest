@@ -35,35 +35,7 @@ import random
 import pygame
 from pygame.locals import *
 
-print "Welcome to Orange Guy's Quest, version 1.1, by Philip Pavlick.\n \
-Copyright (c) 2011-2017 Philip Pavlick\n \
-\n \
-Permission is hereby granted, free of charge, to any person obtaining a\n \
-copy of this software and associated documentation files (the \"Software\"),\n \
-to deal in the Software without restriction, including without limitation\n \
-the rights to use, copy, modify, merge, publish, distribute, sublicense,\n \
-and/or sell copies of the Software, and to permit persons to whom the\n \
-Software is furnished to do so, subject to the following conditions:\n \
-\n \
-The above copyright notice and this permission notice shall be included in\n \
-all copies or substantial portions of the Software.\n \
-\n \
-THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\n \
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\n \
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\n \
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\n \
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING\n \
-FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS\n \
-IN THE SOFTWARE.\n"
-
-q = raw_input("Type \"quit\" to exit now.  Press ENTER to continue.\n").lower()
-
-print "Like most of the software that I write, this software has an additional\n \
-\"careware clause.\"  If you like this software and would like to support the\n \
-creator, please read \"letter.txt\" (in this directory)"
-
-if( q == "quit" or q == "exit" or q == "\"quit\"" or q == "\"exit\"" ):
-  raise SystemExit, "goodbye..."
+print "Welcome to Orange Guy's Quest, version 1.002, by Philip Pavlick."
 
 ##########################
 # Configuration options: #
@@ -142,8 +114,8 @@ pygame.init()
 
 # Set up the display
 pygame.display.set_caption("Orange Guy's Quest!!")
-gamewin = pygame.display.set_mode( (640 * SCALE, 480 * SCALE) )
-screen = pygame.Surface( (640, 480) )
+gamewin = pygame.display.set_mode( (960 * SCALE, 540 * SCALE) )
+screen = pygame.Surface( (960, 540) )
 if DEBUG:
   print "Create: PyGame screen"
 
@@ -233,7 +205,9 @@ class Player(object):
                 elif wall.ID in ["Enemy","spike"]:
                     if DEBUG:
                       print "Event: Player killed by "+wall.ID
-                    print "You are dead.  Press BACKSPACE to restart."
+                    global text, textpos
+                    text = font.render("You are dead.  Press BACKSPACE to restart.", 1, (255, 128, 0))
+                    textpos = text.get_rect(centerx=screen.get_width()/2)
                     self.dead = True
                 elif wall.ID=="Key":
                     for object in walls:
@@ -659,8 +633,10 @@ You've reached the end of the game.\nThanks for playing :-)"
     for wall in walls:
 
         # Translate the object's rect to the camera's offset for drawing
-        if wall.rect.right>=0 and wall.rect.left<=640 \
-           and wall.rect.bottom>=0 and wall.rect.top<=480:
+        if wall.rect.right >= camera.left \
+        and wall.rect.left <= camera.right \
+        and wall.rect.bottom >= camera.top \
+        and wall.rect.top <= camera.bottom:
             draw=True
         else:
             draw=False
@@ -708,7 +684,11 @@ You've reached the end of the game.\nThanks for playing :-)"
     else:
       gamewin.blit( screen, (0, 0) )
 
-    if text != None and message_delay > 0:
+    if player.dead:
+      # We are guaranteed by the player's `update' function that `text' here
+      # has been set, as has `textpos'
+      gamewin.blit( text, textpos )
+    elif text != None and message_delay > 0:
       gamewin.blit(text,textpos)
       message_delay -= 1
 
