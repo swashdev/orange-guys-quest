@@ -30,9 +30,5 @@ For the most part the game makes an earnest attempt to hide this bug by simply
 never placing monsters against walls or over holes, but in future this will
 need to be fixed.
 
-Moving platforms do not move the player with them.  They were never programmed
-to so so, largely because they were never implemented in the game.  Hopefully
-both issues will be addressed in future releases.
-
 Players and monsters walk backwards.  This is not a bug.  This is just
 laziness.

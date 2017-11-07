@@ -229,6 +229,17 @@ class Mover(Wall):
             if self.difference<self.maxDiff*16:
                 self.rect.x+=self.h
                 self.rect.y+=self.v
+                # If the player is STANDING ON the `Mover', use this special
+                # behavior to move the player along with it, but ONLY IF IT IS
+                # NOT AN ENEMY (i.e. only if it is a genuine moving wall)
+                if self.ID == "Mover":
+                    if  (player.rect.bottom >= self.rect.top \
+                         and player.rect.bottom <= self.rect.bottom) \
+                    and (player.rect.left < self.rect.right \
+                         and player.rect.right > self.rect.left \
+                        ):
+                        player.rect.x += self.h
+                        player.rect.y += self.v
                 self.difference+=1
             else:
                 self.direction=-1
@@ -236,6 +247,14 @@ class Mover(Wall):
             if self.difference>-(self.maxDiff*16):
                 self.rect.x-=self.h
                 self.rect.y-=self.v
+                if self.ID not in ["Enemy", "spike"]:
+                    if  (player.rect.bottom >= self.rect.top \
+                         and player.rect.bottom < self.rect.bottom) \
+                    and (player.rect.left < self.rect.right \
+                         and player.rect.right > self.rect.left \
+                        ):
+                        player.rect.x -= self.h
+                        player.rect.y -= self.v
                 self.difference-=1
             else:
                 self.direction=1
