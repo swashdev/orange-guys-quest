@@ -5,5 +5,3 @@ TODO file for Orange Guy's Quest version 1.002
    because the global variables are being declared before the function
    declares them, but I'm not sure what Python expects me to do about it)
  - Figure out a way to scale up the display for people with larger screens
- - Implement a way for map designers to choose a specific direction for
-   monsters to march in.

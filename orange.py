@@ -417,7 +417,7 @@ message:\n\"" + self.Message + "\""
                       print "Event: Place ending object at level end"
                 if col=="K":
                     key=Key((x,y))
-                if col=="R":
+                if col=="G":
                     key=Key((x,y),color="red")
                 if col in ["8","*"]:
                     if col=="8":
@@ -480,20 +480,26 @@ message:\n\"" + self.Message + "\""
                     player.rect.y=y
                     if DEBUG:
                       print "Event: Place player object at level start"
-                if col=="M":
-                    mine_rect=Enemy(x,y,16,16,2,type="rat")
+                if col=="r":
+                    mine_rect=Enemy(x,y,16,16, 1,type="rat")
+                    walls.append(mine_rect)
+                if col=="R":
+                    mine_rect=Enemy(x,y,16,16,-1,type="rat")
+                    walls.append(mine_rect)
+                if col=="b":
+                    mine_rect=Enemy(x,y,16,16, 1,type="bat")
                     walls.append(mine_rect)
                 if col=="B":
-                    mine_rect=Enemy(x,y,16,16,2,type="bat")
+                    mine_rect=Enemy(x,y,16,16,-1,type="bat")
                     walls.append(mine_rect)
                 if col=="S":
                     spike=Spike(x,y,16,16,2,type="spike")
                     walls.append(spike)
                 if col=="D":
                     tele_rect=pygame.Rect(x,y,16,16)
-                if col in ["a","b","c","d","e","f","g","h","i","j","k","l","m",\
-                           "n","o","p","q","r","s","t","u","v","w","x","y","z"]:
-                    alphabet=Letter((x,y), col)
+                #if col in ["a","b","c","d","e","f","g","h","i","j","k","l","m",\
+                #           "n","o","p","q","r","s","t","u","v","w","x","y","z"]:
+                #    alphabet=Letter((x,y), col)
                 if col == '\"':
                     if DEBUG:
                         print "Work: Message found in level; collecting..."

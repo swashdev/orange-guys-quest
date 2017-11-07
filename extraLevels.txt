@@ -2,7 +2,7 @@
                     W
 
 
-     MMMMMMMMMMMMMMM E MMMMMMMMMMMM
+     rRrRrRrRrRrRrRr E rRrRrRrRrRrR
 DWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
 ;
      P
@@ -45,11 +45,11 @@ W    E    W
      W                                                           W
      W WWWWW                    WWW                              W
      W                  WW                                       W  E
-     W           W                                               8 MW
+     W           W                                               8 rW
      W                                         WWWW       W WWWWWWWWW
-     #                               W   WW               W     MW
+     #                               W   WW               W     RW
      W    W                                               W WWWWWW
-     WSSSSSSSRSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSW     KW
+     WSSSSSSSGSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSW     KW
      WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
 
 

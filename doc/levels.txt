@@ -22,7 +22,7 @@ with something on it won't work either, as the semicolon will simply be
 ignored.
 
 The following symbols are recognized as valid by the level generator:
- MSPKREA12346789!@#$^&*(abcdefghijklmnopqrstuvwxyzD-+<>
+ WrRSPKREA12346789!@#$^&*(D-+<>
 
 Every level must contain *one* P, *one* E or A, and at least one W.
 
@@ -33,13 +33,18 @@ A marks a special Exit (really it's just a different sprite) for the end game.
 
 W marks a Wall.
 
-M marks a Monster.
+r and R marks a giant Rat.  Rats are mindless enemies and will march back and
+  forth in a consistent pattern.  By placing rats which march in opposite
+  directions, you can make things more challenging for the player.
+  r marks a rat which will march first right and then left...
+  R marks a rat which will march first left and then right.
+  
 
 S marks a set of Spikes.
 
 K marks a Key.
 
-R marks a golden key (originally a Red key).
+G marks a Golden key.
 
 D marks a secret level exit, which are used during testing.
 
@@ -53,9 +58,6 @@ D marks a secret level exit, which are used during testing.
     fiddly and might cause the player to teleport on top of random platforms
     that they make you touch or move through walls.  Use these walls
     sparingly.
-
-The lower letters a-z will simply place a letter in the map data.  These are
-the messages you see during the first few levels.
 
 To add a message to the level data, place the message in-between two
 double-quotes (e.g. "This is a level message") and the message (without the
