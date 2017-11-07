@@ -1,4 +1,5 @@
-Thank you for downloading Orange Guy's Quest, version 1.1, by Philip Pavlick.
+Thank you for downloading Orange Guy's Quest, version 1.002, by
+Philip Pavlick.
 
  -- Introduction --
 Orange Guy's Quest is an old game project that I wrote while learning to
