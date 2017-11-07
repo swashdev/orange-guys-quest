@@ -35,7 +35,7 @@ import random
 import pygame
 from pygame.locals import *
 
-print "Welcome to Orange Guy's Quest, version 1.1, by Philip Pavlick."
+print "Welcome to Orange Guy's Quest, version 1.002, by Philip Pavlick."
 
 ##########################
 # Configuration options: #
