@@ -3,8 +3,6 @@ VERSION 1.003:
  - The player now moves when standing on a moving platform.
  - Map editors can now specify a direction for moving platforms to be moving
    in when the map spawns, for the purposes of level design and platforming.
- - Moving platforms now carry the player with them if the player is standing
-   on them.
  - Map editors can now specify a direction for giant rats and bats to move in
    to allow greater precision in level design.
  - To make room for symbols that specify the direction for rats and bats to be
