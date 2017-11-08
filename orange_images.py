@@ -23,6 +23,9 @@
 # creator, please read "letter.txt" (in this directory)
 
 # Functions for loading images for Orange Guy's Quest
+# This file DEPENDS ON:
+#   pygame
+
 from pygame import image
 
 SPRITES = { "player":None,"key":None,"key2":None,"door":None,"spike":None, \

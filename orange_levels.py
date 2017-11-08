@@ -23,10 +23,7 @@
 # creator, please read "letter.txt" (in this directory)
 
 # Get the levels for Orange Guy's Quest from a text file
-# This is how the game originally got its level data, but like an idiot I
-# decided to hard-code it before saving the program and forgetting it forever.
-# Now I have to basically rebuild this whole thing, but hopefully I now know
-# a better way to do it...
+# This file does not depend on any other files
 
 # Returns a list of strings.
 def get_levels( level_file_path, DEBUG = False ):

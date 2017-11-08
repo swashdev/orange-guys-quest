@@ -29,6 +29,12 @@
 # "careware clause."  If you like this software and would like to support the
 # creator, please read "letter.txt" (in this directory)
 
+# Orange Guy's Quest mainfile
+# This file DEPENDS ON:
+#   sys, random, pygame
+#   orange_images.py
+#   orange_levels.py
+
 #import os
 import sys
 import random
