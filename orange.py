@@ -34,6 +34,7 @@
 #   sys, random, pygame
 #   orange_images.py
 #   orange_levels.py
+#   orange_monsters.py
 
 #import os
 import sys
@@ -94,6 +95,9 @@ while len( vars ) > 0:
 d = '/'
 if WINDOWS == True:
   d = '\\'
+
+import orange_monsters
+orange_monsters.d = d
 
 while USERECTS not in [True,False]:
     print "Use [R]etro or [A]ncient graphics? [R/A]"
@@ -364,6 +368,33 @@ class Enemy(Mover):
                               random.choice( ["rat","bat"] ), d, DEBUG )
           else:
               self.sprite = orange_images.get_sprite( type.lower(), d, DEBUG )
+
+    def __init__( self, x, y, mondat ):
+        """Initializes an Enemy at x, y from mondat.  See the huge comment block in ``orange_monsters.py'' for how mondat should be set."""
+        self.rect = pygame.Rect( x, y, mondat[0], mondat[1] )
+        self.h = mondat[2]
+        self.v = mondat[3]
+        if self.h == 0 and self.v == 0:
+            self.direction = 0
+            self.maxDiff = 0
+        else:
+            if mondat[4] in [-1, 1, 0]:
+                self.direction = mondat[4]
+            else:
+                self.direction = random.choice( [-1, 1, 0] )
+            if self.direction == 0:
+                self.maxDiff = 0
+            elif mondat[5] >= 0:
+                self.maxDiff = mondat[5]
+        if mondat[6] != None and mondat[6] != "":
+            self.type = mondat[6]
+            if mondat[7] == None:
+                self.sprite = orange_images.get_sprite( mondat[6], d, DEBUG )
+            else:
+                self.sprite = mondat[7]
+        else:
+            self.type = random.choice( "rat", "bat" )
+            self.sprite = orange_images.get_sprite( self.type, d, DEBUG )
 
 class Spike(Enemy):
     ID="spike"
