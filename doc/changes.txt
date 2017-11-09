@@ -9,6 +9,7 @@ VERSION 1.003:
    moving in, the in-game "floating letters" messages have been deprecated.
    The code to produce them still exists in-game but has been commented out of
    the level creation code.
+ - Added walls that the player can move through.
 
 VERSION 1.002:
 

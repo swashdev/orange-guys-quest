@@ -22,7 +22,7 @@ with something on it won't work either, as the semicolon will simply be
 ignored.
 
 The following symbols are recognized as valid by the level generator:
- WrRSPKREA12346789!@#$^&*(D-+<>
+ WwrRSPKREA12346789!@#$^&*(D-+<>
 
 Every level must contain *one* P, *one* E or A, and at least one W.
 
@@ -32,6 +32,9 @@ E marks the Exit.
 A marks a special Exit (really it's just a different sprite) for the end game.
 
 W marks a Wall.
+w marks a Wall which the player is able to move through.  These are useful for
+  secret passage ways.  Please don't use them to make platforms that the
+  player is tempted to jump on that they fall through... don't be that guy.
 
 r and R marks a giant Rat.  Rats are mindless enemies and will march back and
   forth in a consistent pattern.  By placing rats which march in opposite

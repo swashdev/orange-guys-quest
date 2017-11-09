@@ -96,8 +96,8 @@ d = '/'
 if WINDOWS == True:
   d = '\\'
 
-import orange_monsters
-orange_monsters.d = d
+#import orange_monsters
+#orange_monsters.d = d
 
 while USERECTS not in [True,False]:
     print "Use [R]etro or [A]ncient graphics? [R/A]"
@@ -183,7 +183,8 @@ class Player(object):
         # If you collide with a wall, move out based on velocity
         for wall in walls:
             if self.rect.colliderect(wall.rect):
-                if wall.ID not in ["Enemy","spike","Key","alpha"]:
+                if wall.collide and \
+                        wall.ID not in ["Enemy","spike","Key","alpha"]:
                     if dx > 0: # Moving right; Hit the left side of the wall
                         self.rect.right = wall.rect.left
                     if dx < 0: # Moving left; Hit the right side of the wall
@@ -218,10 +219,12 @@ class Wall(object):
     sprite=None
     ID="Wall"
     color=(255,255,255)
-    def __init__(self, pos):
+    collide = True
+    def __init__(self, pos, collide=True):
         global walls
-        walls.append(self)
         self.rect = pygame.Rect(pos[0], pos[1], 16, 16)
+        self.collide = collide
+        walls.append(self)
 
 class Mover(Wall):
     ID="Mover"
@@ -369,32 +372,32 @@ class Enemy(Mover):
           else:
               self.sprite = orange_images.get_sprite( type.lower(), d, DEBUG )
 
-    def __init__( self, x, y, mondat ):
-        """Initializes an Enemy at x, y from mondat.  See the huge comment block in ``orange_monsters.py'' for how mondat should be set."""
-        self.rect = pygame.Rect( x, y, mondat[0], mondat[1] )
-        self.h = mondat[2]
-        self.v = mondat[3]
-        if self.h == 0 and self.v == 0:
-            self.direction = 0
-            self.maxDiff = 0
-        else:
-            if mondat[4] in [-1, 1, 0]:
-                self.direction = mondat[4]
-            else:
-                self.direction = random.choice( [-1, 1, 0] )
-            if self.direction == 0:
-                self.maxDiff = 0
-            elif mondat[5] >= 0:
-                self.maxDiff = mondat[5]
-        if mondat[6] != None and mondat[6] != "":
-            self.type = mondat[6]
-            if mondat[7] == None:
-                self.sprite = orange_images.get_sprite( mondat[6], d, DEBUG )
-            else:
-                self.sprite = mondat[7]
-        else:
-            self.type = random.choice( "rat", "bat" )
-            self.sprite = orange_images.get_sprite( self.type, d, DEBUG )
+    #def __init__( self, x, y, mondat ):
+    #    """Initializes an Enemy at x, y from mondat.  See the huge comment block in ``orange_monsters.py'' for how mondat should be set."""
+    #    self.rect = pygame.Rect( x, y, mondat[0], mondat[1] )
+    #    self.h = mondat[2]
+    #    self.v = mondat[3]
+    #    if self.h == 0 and self.v == 0:
+    #        self.direction = 0
+    #        self.maxDiff = 0
+    #    else:
+    #        if mondat[4] in [-1, 1, 0]:
+    #            self.direction = mondat[4]
+    #        else:
+    #            self.direction = random.choice( [-1, 1, 0] )
+    #        if self.direction == 0:
+    #            self.maxDiff = 0
+    #        elif mondat[5] >= 0:
+    #            self.maxDiff = mondat[5]
+    #    if mondat[6] != None and mondat[6] != "":
+    #        self.type = mondat[6]
+    #        if mondat[7] == None:
+    #            self.sprite = orange_images.get_sprite( mondat[6], d, DEBUG )
+    #        else:
+    #            self.sprite = mondat[7]
+    #    else:
+    #        self.type = random.choice( "rat", "bat" )
+    #        self.sprite = orange_images.get_sprite( self.type, d, DEBUG )
 
 class Spike(Enemy):
     ID="spike"
@@ -430,6 +433,8 @@ message:\n\"" + self.Message + "\""
                     continue
                 if col == "W":
                     Wall((x, y))
+                if col == "w":
+                    Wall( (x, y), False )
                 if col==">":
                     Mover((x,y),(1,0))
                 if col=="<":
