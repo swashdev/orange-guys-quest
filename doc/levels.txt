@@ -15,11 +15,13 @@ means is that each line in the code can be as long as you can reasonably
 expect one to be, but the game will not start placing items under that line
 until you start a new line in the text file.
 
-Levels are separated by a line that consists only of a semicolon.  An empty
-line won't do because the level generator is expecting empty lines and many of
-the existing levels use them already.  Adding a semicolon at the end of a line
-with something on it won't work either, as the semicolon will simply be
-ignored.
+A semicolon will mark the beginning of a comment line, meaning that any text
+on a line that is preceded by a semicolon will be ignored.
+A line that consists of ONLY a semicolon will mark the end of a level.  An
+empty line won't do because the level generator is expecting empty lines and
+many of the existing levels use them already.  If there is any character
+before or after the first semicolon, even a space, the game will assume that it
+is a comment line.
 
 The following symbols are recognized as valid by the level generator:
  MSPKREA12346789!@#$^&*(abcdefghijklmnopqrstuvwxyzD

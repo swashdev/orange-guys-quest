@@ -1,4 +1,4 @@
-TODO file for Orange Guy's Quest version 1.002
+TODO file for Orange Guy's Quest version 1.3
 
  - Refine the code further so that redundant work isn't being done.
  - Find out why the program hates my global variables so much.  (It might be

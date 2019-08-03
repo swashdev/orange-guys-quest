@@ -1,4 +1,4 @@
-Thank you for downloading Orange Guy's Quest, version 1.002, by
+Thank you for downloading Orange Guy's Quest, version 1.3, by
 Philip Pavlick.
 
  -- Introduction --
@@ -20,10 +20,10 @@ by opening doors (blue) with keys (green) while avoiding enemies and spikes
 (purple).  Along your way you may also encounter golden keys (yellow) which
 open hidden doors.
 
-Most of the instructions are given in the first few levels save for one: the
-BACKSPACE key is used to restart the level; falling off the level won't do
-this for you.  In the classic versions of the game, being killed by an enemy
-or a spike will kill the game immediately.
+Most of the instructions are given in the first few levels.  The BACKSPACE key
+is used to restart the level; falling off the level won't do this for you.  In
+the classic versions of the game, being killed by an enemy or a spike will
+kill the game immediately.
 
  -- Running the Game --
 After you have Python and Pygame installed, you should be able to run Orange
@@ -31,11 +31,6 @@ Guy's Quest on any system from within its directory by using the following
 command:
 
  python orange.py
-
-You will first see a license agreement.  Read this if you haven't already, and
-then press ENTER to start the game.  Depending on your configuration (see
-below) you may also be prompted to choose between fancy Retro pixel graphics
-or the original Ancient Atari 2600-style block graphics.
 
  -- Command-line Options --
 The following command line options can be used to configure your game from the
