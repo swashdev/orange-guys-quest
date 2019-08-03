@@ -36,6 +36,13 @@ command:
 The following command line options can be used to configure your game from the
 command line.  All of these will override the default configuration (see below)
 
+ -w or -x               the next argument will be the Width of the window in
+                        pixels
+ -h or -y               the next argument will be the Height of the window in
+                        pixels
+ -W                     the next two values will be the game Window's width
+                        and height, respectively
+
  -r or -s               Retro or Sprite graphics
  -a or -b               Ancient or Blocky graphics
  -D                     shows Debug output in the terminal
@@ -47,10 +54,22 @@ choosing levels from a fresh batch I've just cooked up, I can use this command:
 
  python orange.py -b -D --levels new-levels.txt
 
+If I wanted to run a larger game window so I can see more of the levels at
+once, I might use either of these two commands:
+
+ python orange.py -W 800 600
+ python orange.py -w 800 -h 600
+
  -- Configuration --
 You can make some configuration changes by altering the source code in
 orange.py.  You will find the configuration options after scrolling past the
 license information message.
+
+As of version 1.1, LEVELFILE specifes where the game can find levels.  If you
+specify a file that does not exist, the game will complain at you.  You can
+also specify what level file to use in the command line options (see above),
+but this config flag has been included for those times when you just really
+don't feel like typing in the same file name over and over again.
 
 In version 1.1, the WINDOWS configuration setting was added.  This defaults to
 False.  If set to True, the game will use a backslash (\) instead of a slash
@@ -62,17 +81,15 @@ give you some pleasing retro pixel art graphics.  If you set USERECTS to True,
 it will give you the original block graphics that I used when I first started
 coding the game.  Any other value will give a prompt allowing you to choose.
 
-Ostensibly blocky graphics are faster because they don't require reading image
+WIN_X and WIN_Y, introduced in version 1.3, set the width and height of the
+game window, respectively.  Note that the game does not scale the sprites
+relative to window size; such a feature was attempted at one point but it made
+the entire game a framerate disaster for some reason.
+
+In theory, blocky graphics are faster because they don't require reading image
 files (aside from images files for the text) but modern computers should be
 fast enough to run either version.
 
-There are two additional configuration options in version 1.1: LEVELFILE and
-DEBUG.  DEBUG will allow you to see debug output; I do not recommend setting
+DEBUG will allow you to see debug output; I do not recommend setting
 this to True, as you can enable this using the -D command line option (see
 above)
-
-LEVELFILE specifes where the game can find levels.  If you specify a file that
-does not exist, the game will complain at you.  You can also specify what
-level file to use in the command line options (see above), but this
-config flag has been included for those times when you just really don't feel
-like typing in the same file name over and over again.

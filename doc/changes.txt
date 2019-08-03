@@ -5,6 +5,8 @@ VERSION 1.3:
    the level file.
  - Minor updates to documentation to more accurately reflect the game as it
    currently exists.
+ - Added in functionality to dynamically resize the window according to user
+   specifications both in the command line and as a configuration option.
 
 VERSION 1.002:
 

@@ -27,24 +27,37 @@ print "Welcome to Orange Guy's Quest, version 1.3, by Philip Pavlick."
 ##########################
 # Configuration options: #
 ##########################
-# WINDOWS changes whether \ or / are used for directory trees.  You shouldn't
-# need to change this unless your system is only able to use \.  Most versions
-# of windows will run just fine with only /.
-WINDOWS = False
-# Set USERECTS to True to force the old-school Atari2600-style blocky
-# graphics or False to use the Retro pixel graphics.  Any other value will
-# give a prompt.
-# Can be set to False with -r or -s, or True with -a or -b, in the command line
-USERECTS = False
-# Set BIGPLAYER to True to restore the player's original large hitbox.  This is
-# not recommended, but I thought people might get a chuckle out of this.
-# Can be set with -B in the command line
-BIGPLAYER = False
+
 # Set LEVELPATH to the file where you have your levels saved.  By default,
 # this is ./orange-levels.  Don't set it to ./extraLevels.txt because those
 # levels are awful.
 # Can be set with -l <file> or --level <file> in the command line
 LEVELPATH = "orange-levels"
+
+# WINDOWS changes whether \ or / are used for directory trees.  You shouldn't
+# need to change this unless your system is only able to use \.  Most versions
+# of windows will run just fine with only /.
+WINDOWS = False
+
+# Set USERECTS to True to force the old-school Atari2600-style blocky
+# graphics or False to use the Retro pixel graphics.  Any other value will
+# give a prompt.
+# Can be set to False with -r or -s, or True with -a or -b, in the command line
+USERECTS = False
+
+# Set these to the pixel values you want the game to use for the screen.  Note
+# that the game was originally programmed for a 640x480 window, and it looks
+# just fine in that resolution.
+# Can be set with -W in the command line, or individually with -x or -w for
+# WIN_X and -y or -h for WIN_Y
+WIN_X = 640
+WIN_Y = 480
+
+# Set BIGPLAYER to True to restore the player's original large hitbox.  This is
+# not recommended, but I thought people might get a chuckle out of this.
+# Can be set with -B in the command line
+BIGPLAYER = False
+
 # Set this to True if you want annoying debug messages in your console.
 # Can be set with -D in the command line
 DEBUG = False
@@ -66,6 +79,13 @@ while len( vars ) > 0:
     BIGPLAYER = True
   elif opt == "-D":
     DEBUG = True
+  elif opt == "-W":
+    WIN_X = int(vars.pop(0))
+    WIN_Y = int(vars.pop(0))
+  elif opt == "-x" or opt == "-w":
+    WIN_X = int(vars.pop(0))
+  elif opt == "-y" or opt == "-h":
+    WIN_Y = int(vars.pop(0))
   elif opt == "-l" or opt == "--levels":
     if len(vars) > 0:
       LEVELPATH = vars.pop(0)
@@ -90,7 +110,7 @@ pygame.init()
 
 # Set up the display
 pygame.display.set_caption("Orange Guy's Quest!!")
-screen = pygame.display.set_mode((960, 540))
+screen = pygame.display.set_mode((WIN_X, WIN_Y))
 if DEBUG:
   print "Create: PyGame screen"
 
