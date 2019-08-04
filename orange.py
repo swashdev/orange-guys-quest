@@ -180,7 +180,7 @@ class Player(object):
         # If you collide with a wall, move out based on velocity
         for wall in walls:
             if self.rect.colliderect(wall.rect):
-                if wall.ID not in ["Enemy","spike","Key","alpha"]:
+                if wall.ID not in ["Enemy","spike","Key"]:
                     if dx > 0: # Moving right; Hit the left side of the wall
                         self.rect.right = wall.rect.left
                     if dx < 0: # Moving left; Hit the right side of the wall
@@ -349,12 +349,6 @@ class Enemy(Mover):
 
 class Spike(Enemy):
     ID="spike"
-        
-class Letter(Key):
-    ID="alpha"
-    def __init__(self,pos,img):
-        super(Letter,self).__init__(pos)
-        self.sprite=orange_images.get_alpha( img, d, DEBUG )
 
 # Holds the level layout in a list of strings.
 class Level(object):
@@ -479,9 +473,6 @@ message:\n\"" + self.Message + "\""
                     walls.append(spike)
                 if col=="D":
                     tele_rect=pygame.Rect(x,y,16,16)
-                if col in ["a","b","c","d","e","f","g","h","i","j","k","l","m",\
-                           "n","o","p","q","r","s","t","u","v","w","x","y","z"]:
-                    alphabet=Letter((x,y), col)
                 if col == '\"':
                     if DEBUG:
                         print "Work: Message found in level; collecting..."
@@ -642,10 +633,10 @@ You've reached the end of the game.\nThanks for playing :-)"
         wall.rect = translate(wall.rect)
         if wall.ID in ["Enemy","Mover"]:
             wall.update()
-        if USERECTS==True and wall.ID!="alpha":
+        if USERECTS==True:
             pygame.draw.rect(screen,wall.color,wall.rect)
         else:
-            if wall.ID in ["Door","Key","alpha","spike","Enemy"] and draw:
+            if wall.ID in ["Door","Key","spike","Enemy"] and draw:
                 if wall.sprite!="HIDDEN":
                     screen.blit(wall.sprite,(wall.rect.x,wall.rect.y))
                 else:

@@ -14,12 +14,6 @@ SPRITES = { "player":None,"key":None,"key2":None,"door":None,"spike":None, \
             "rat":None,"exit":None,"end":None,"dead":None,"goblin":None, \
             "ghost":None,"skull":None,"bat":None \
           }
-ALPHA = { 'a':None, 'b':None, 'c':None, 'd':None, 'e':None, 'f':None, \
-          'g':None, 'h':None, 'i':None, 'j':None, 'k':None, 'l':None, \
-          'm':None, 'n':None, 'o':None, 'p':None, 'q':None, 'r':None, \
-          's':None, 't':None, 'u':None, 'v':None, 'w':None, 'x':None, \
-          'y':None, 'z':None \
-        }
 
 # Returns a pygame image
 def get_sprite( key, d = '/', DEBUG = False ):
@@ -38,18 +32,6 @@ def get_sprite( key, d = '/', DEBUG = False ):
       SPRITES[key].set_colorkey( (255, 128, 255) )
     SPRITES[key].convert_alpha()
     return SPRITES[key]
-
-# Returns a pygame image
-def get_alpha( char, d = '/', DEBUG = False ):
-  global ALPHA
-  ch = char.lower()
-  if ALPHA[ch] != None:
-    return ALPHA[ch]
-  else:
-    if DEBUG:
-      print "Load: Alphabet sprite \'" + ch + "\'"
-    ALPHA[ch] = image.load( "Images" + d + "Font2" + d + ch + ".gif" )
-    return ALPHA[ch]
 
 def get_image_link( key, d ):
   il = "Images" + d
