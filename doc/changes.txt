@@ -10,6 +10,7 @@ VERSION 1.3:
  - The old method of displaying messages by having physical letters float
    around the level has been officially removed from the game entirely, and is
    no longer supported.  Good riddance.
+ - Implemented teleporters.
 
 VERSION 1.002:
 

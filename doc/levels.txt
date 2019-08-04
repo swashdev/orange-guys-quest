@@ -24,7 +24,7 @@ before or after the first semicolon, even a space, the game will assume that it
 is a comment line.
 
 The following symbols are recognized as valid by the level generator:
- MSPKREA12346789!@#$^&*(D
+ MSPKREATt12346789!@#$^&*(D
 
 Every level must contain *one* P, *one* E or A, and at least one W.
 
@@ -43,7 +43,21 @@ K marks a Key.
 
 R marks a golden key (originally a Red key).
 
-D marks a secret level exit, which are used during testing.
+T marks a Teleporter
+t marks the destination that a teleporter will send you to.
+
+Regardless of how many teleport destinations exist in a level, only one will
+ever be used, namely the first one that the game sees when going through the
+array of objects in the level.  Confusingly, this appears to be the last
+teleport destination which appears when scanning the level file, even though I
+didn't code it this way.
+
+D marks a secret level exit, which are used during Debugging but can also
+serve as a nifty secret secondary exit.
+
+Confusingly, the Debug exit is referred to in the code as `tele_rect`,
+suggesting that it's the same as the teleporter, whereas the teleporters are
+called `Portal`s.  Do not confuse these, as they are not the same.
 
 To add a message to the level data, place the message in-between two
 double-quotes (e.g. "This is a level message") and the message (without the

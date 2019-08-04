@@ -180,7 +180,7 @@ class Player(object):
         # If you collide with a wall, move out based on velocity
         for wall in walls:
             if self.rect.colliderect(wall.rect):
-                if wall.ID not in ["Enemy","spike","Key","Portal"]:
+                if wall.ID not in ["Enemy","spike","Key","Portal","Destination"]:
                     if dx > 0: # Moving right; Hit the left side of the wall
                         self.rect.right = wall.rect.left
                     if dx < 0: # Moving left; Hit the right side of the wall
@@ -210,15 +210,14 @@ class Player(object):
                             if object.Color==wall.Color:
                                 object.Open()
                 elif wall.ID == "Portal":
-                    if Levels[levelIndex].dest_x >= 0 and Levels[levelIndex].dest_y >= 0:
-                        if DEBUG:
-                          print "Zzzap!  Sending player to", Levels[levelIndex].dest_x, Levels[levelIndex].dest_y
-                        temp_x = Levels[levelIndex].dest_x
-                        temp_y = Levels[levelIndex].dest_y
-                        temp_rect = translate(pygame.Rect(temp_x, temp_y, 16, 16))
-                        self.rect.x = temp_rect.x
-                        self.rect.y = temp_rect.y
-                
+                    if DEBUG:
+                      print "Event: Player touched a portal"
+                    for object in walls:
+                        if object.ID=="Destination":
+                            self.rect = object.rect
+                            if DEBUG:
+                              print "Zzzap!  Sent player to", self.rect.x, self.rect.y
+
 # Nice class to hold a wall rect
 class Wall(object):
     sprite=None
@@ -326,6 +325,16 @@ class Key(Wall):
 class Portal(Wall):
     ID="Portal"
 
+class Destination(Wall):
+    ID="Destination"
+    def __init__(self, pos):
+        global walls
+        walls.append(self)
+        if BIGPLAYER:
+          self.rect = pygame.Rect(pos[0], pos[1], 16, 16)
+        else:
+          self.rect = pygame.Rect(pos[0], pos[1],  8, 16)
+
 class Enemy(Mover):
     difference=0
     maxDiff=5
@@ -365,10 +374,6 @@ class Spike(Enemy):
 # Holds the level layout in a list of strings.
 class Level(object):
     level = []
-    # teleporter destination, or (-1, -1) if there is no teleporter in this
-    # level
-    dest_x = -1
-    dest_y = -1
     Message=""
     def create(self):
         global walls,player,end_rect,lvlExit,end_rect_offset,tele_rect,camera
@@ -377,8 +382,6 @@ class Level(object):
         # Parse the level string above. W = wall, E = exit
         x = y = 0
         self.Message = ""
-        self.dest_x = -1
-        self.dest_y = -1
         get_message = False
         for row in self.level:
             for col in row:
@@ -478,10 +481,7 @@ message:\n\"" + self.Message + "\""
                 if col=="T":
                     Portal( (x, y) )
                 if col=="t":
-                    if DEBUG:
-                      print "Found teleporter destination at", x, y
-                    self.dest_x = x
-                    self.dest_y = y
+                    Destination( (x, y) )
                 if col=="P":
                     player.rect.x=x
                     player.rect.y=y
