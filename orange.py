@@ -180,7 +180,7 @@ class Player(object):
         # If you collide with a wall, move out based on velocity
         for wall in walls:
             if self.rect.colliderect(wall.rect):
-                if wall.ID not in ["Enemy","spike","Key"]:
+                if wall.ID not in ["Enemy","spike","Key","Portal"]:
                     if dx > 0: # Moving right; Hit the left side of the wall
                         self.rect.right = wall.rect.left
                     if dx < 0: # Moving left; Hit the right side of the wall
@@ -209,6 +209,15 @@ class Player(object):
                         if object.ID=="Door":
                             if object.Color==wall.Color:
                                 object.Open()
+                elif wall.ID == "Portal":
+                    if Levels[levelIndex].dest_x >= 0 and Levels[levelIndex].dest_y >= 0:
+                        if DEBUG:
+                          print "Zzzap!  Sending player to", Levels[levelIndex].dest_x, Levels[levelIndex].dest_y
+                        temp_x = Levels[levelIndex].dest_x
+                        temp_y = Levels[levelIndex].dest_y
+                        temp_rect = translate(pygame.Rect(temp_x, temp_y, 16, 16))
+                        self.rect.x = temp_rect.x
+                        self.rect.y = temp_rect.y
                 
 # Nice class to hold a wall rect
 class Wall(object):
@@ -314,6 +323,9 @@ class Key(Wall):
             self.color=(0,255,0)
         super(Key,self).__init__(pos)
 
+class Portal(Wall):
+    ID="Portal"
+
 class Enemy(Mover):
     difference=0
     maxDiff=5
@@ -353,6 +365,10 @@ class Spike(Enemy):
 # Holds the level layout in a list of strings.
 class Level(object):
     level = []
+    # teleporter destination, or (-1, -1) if there is no teleporter in this
+    # level
+    dest_x = -1
+    dest_y = -1
     Message=""
     def create(self):
         global walls,player,end_rect,lvlExit,end_rect_offset,tele_rect,camera
@@ -361,6 +377,8 @@ class Level(object):
         # Parse the level string above. W = wall, E = exit
         x = y = 0
         self.Message = ""
+        self.dest_x = -1
+        self.dest_y = -1
         get_message = False
         for row in self.level:
             for col in row:
@@ -389,14 +407,14 @@ message:\n\"" + self.Message + "\""
                       lvlExit = orange_images.get_sprite( "exit", d, DEBUG )
                     end_rect_offset = 0
                     if DEBUG:
-                      print "Event: Place ending object at level end"
+                      print "Event: Place ending object at", x, y
                 if col=="A":
                     end_rect = pygame.Rect(x + 4, y, 8, 16)
                     if not USERECTS:
                       lvlExit = orange_images.get_sprite( "end", d, DEBUG )
                     end_rect_offset = -4
                     if DEBUG:
-                      print "Event: Place ending object at level end"
+                      print "Event: Place ending object at", x, y
                 if col=="K":
                     key=Key((x,y))
                 if col=="R":
@@ -457,11 +475,18 @@ message:\n\"" + self.Message + "\""
                         Color="red"
                     door=Door((x,y),1,1,color=Color)
                     walls.append(door)
+                if col=="T":
+                    Portal( (x, y) )
+                if col=="t":
+                    if DEBUG:
+                      print "Found teleporter destination at", x, y
+                    self.dest_x = x
+                    self.dest_y = y
                 if col=="P":
                     player.rect.x=x
                     player.rect.y=y
                     if DEBUG:
-                      print "Event: Place player object at level start"
+                      print "Event: Place player object at", x, y
                 if col=="M":
                     mine_rect=Enemy(x,y,16,16,2,type="rat")
                     walls.append(mine_rect)
@@ -643,6 +668,8 @@ You've reached the end of the game.\nThanks for playing :-)"
                     pygame.draw.rect(screen,(255,255,255),wall.rect)
             elif draw and wall.ID in ["Wall","Mover"]:
                 pygame.draw.rect(screen, (255, 255, 255), wall.rect)
+            elif draw and wall.ID == "Portal":
+                pygame.draw.rect(screen, (178, 255, 255), wall.rect)
 
     player.rect=translate(player.rect)
     tele_rect=translate(tele_rect)

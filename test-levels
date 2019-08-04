@@ -1,5 +1,11 @@
+"test level for teleporters"
+PT        t   E
+W         WWWWW
+     t
+     D
+;
 test levels
- WWWWWWWW WWWWWWWWWWWD
+ DWWWWWWW WWWWWWWWWWWW
 Wcollide W           WWWWWWWWW
 WP.............
 W$WWWWWWWWWWWW.      -
@@ -13,4 +19,4 @@ WWWWWWWWWWWWWW.  .
                     WWWWWWWWWWW
 ": This is a test level
 for Orange Guy's Quest"
-;
+
