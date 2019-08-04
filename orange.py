@@ -713,32 +713,99 @@ if won:
 
     screen.fill((0, 0, 0))
 
-    text = font.render( "Congratulatons!", 1, (255, 128, 0) )
-    textpos = text.get_rect( centerx = screen.get_width() / 2 )
-
-    screen.blit( text, textpos )
-
-    text = font.render( "You've recovered the legendary sword", 1, (255, 128, 0) )
+    text = font.render( "Congratulations!", 1, (255, 128, 0) )
     textpos = text.get_rect( centerx = screen.get_width() / 2 )
     textpos.y = 16
 
     screen.blit( text, textpos )
 
-    text = font.render( "of the Dragon King!", 1, (255, 128, 0) )
+    text = font.render( "You've recovered the legendary sword", 1, (255, 128, 0) )
     textpos = text.get_rect( centerx = screen.get_width() / 2 )
     textpos.y = 32
 
     screen.blit( text, textpos )
 
+    text = font.render( "of the Dragon King!", 1, (255, 128, 0) )
+    textpos = text.get_rect( centerx = screen.get_width() / 2 )
+    textpos.y = 48
+
+    screen.blit( text, textpos )
+
     text = font.render( "You've reached the end of the game.", 1, (255, 128, 0) )
     textpos = text.get_rect( centerx = screen.get_width() / 2 )
-    textpos.y = 64
+    textpos.y = 80
 
     screen.blit( text, textpos )
 
     text = font.render( "Press ESCAPE to finish.", 1, (255, 128, 0) )
     textpos = text.get_rect( centerx = screen.get_width() / 2 )
-    textpos.y = 80
+    textpos.y = 96
+
+    screen.blit( text, textpos )
+
+    text = font.render( "Original game by Philip Pavlick", 1, (255, 128, 0) )
+    textpos = text.get_rect( centerx = screen.get_width() / 2 )
+    textpos.y = 216
+
+    screen.blit( text, textpos )
+
+    text = font.render( "Special thanks to my family and friends", 1, (255, 128, 0) )
+    textpos = text.get_rect( centerx = screen.get_width() / 2 )
+    textpos.y = 232
+
+    screen.blit( text, textpos )
+
+    text = font.render( "who got a kick out of this dumb computer game", 1, (255, 128, 0) )
+    textpos = text.get_rect( centerx = screen.get_width() / 2 )
+    textpos.y = 248
+
+    screen.blit( text, textpos )
+
+    text = font.render( "I wrote ages ago", 1, (255, 128, 0) )
+    textpos = text.get_rect( centerx = screen.get_width() / 2 )
+    textpos.y = 264
+
+    screen.blit( text, textpos )
+
+    text = font.render( "(seriously, this source code is terrible!)", 1, (255, 128, 0) )
+    textpos = text.get_rect( centerx = screen.get_width() / 2 )
+    textpos.y = 280
+
+    screen.blit( text, textpos )
+
+    text = font.render( "For more and better games,", 1, (255, 128, 0) )
+    textpos = text.get_rect( centerx = screen.get_width() / 2 )
+    textpos.y = 312
+
+    screen.blit( text, textpos )
+
+    text = font.render( "check back at my website at", 1, (255, 128, 0) )
+    textpos = text.get_rect( centerx = screen.get_width() / 2 )
+    textpos.y = 328
+
+    screen.blit( text, textpos )
+
+    text = font.render( "pavlick.net", 1, (255, 128, 0) )
+    textpos = text.get_rect( centerx = screen.get_width() / 2 )
+    textpos.y = 344
+
+    screen.blit( text, textpos )
+
+    text = font.render( "or", 1, (255, 128, 0) )
+    textpos = text.get_rect( centerx = screen.get_width() / 2 )
+    textpos.y = 360
+
+    screen.blit( text, textpos )
+
+    text = font.render( "github.com/swashdev", 1, (255, 128, 0) )
+    textpos = text.get_rect( centerx = screen.get_width() / 2 )
+    textpos.y = 376
+
+    screen.blit( text, textpos )
+
+    text = font.render( "Thank you so much for playing!", 1, (255, 128, 0) )
+    textpos = text.get_rect( centerx = screen.get_width() / 2 )
+    textpos.y = 408
 
     screen.blit( text, textpos )
 
@@ -746,21 +813,21 @@ if won:
 
         if BIGPLAYER:
             pygame.draw.rect( screen, player.color, \
-                    pygame.Rect( screen.get_width() / 2, 128, \
+                    pygame.Rect( screen.get_width() / 2, 144, \
                                  16, 16 ) )
         else:
             pygame.draw.rect( screen, player.color, \
-                    pygame.Rect( screen.get_width() / 2, 128, \
+                    pygame.Rect( screen.get_width() / 2, 144, \
                                  8, 16 ) )
 
         pygame.draw.rect( screen, (255, 0, 0), \
-                    pygame.Rect( (screen.get_width() / 2) - 6, 118, \
+                    pygame.Rect( (screen.get_width() / 2) - 6, 134, \
                                  8, 16 ) )
 
     else:
 
         screen.blit( orange_images.get_sprite( "won" ), \
-                     pygame.Rect( (screen.get_width() / 2) - 6, 118, \
+                     pygame.Rect( (screen.get_width() / 2) - 6, 134, \
                                   15, 32 ) )
 
     pygame.display.flip()
