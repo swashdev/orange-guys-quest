@@ -11,8 +11,8 @@
 from pygame import image
 
 SPRITES = { "player":None,"key":None,"key2":None,"door":None,"spike":None, \
-            "rat":None,"exit":None,"end":None,"dead":None,"goblin":None, \
-            "ghost":None,"skull":None,"bat":None \
+            "rat":None,"exit":None,"end":None,"dead":None,"won":None,
+            "goblin":None,"ghost":None,"skull":None,"bat":None \
           }
 
 # Returns a pygame image
@@ -55,6 +55,8 @@ def get_image_link( key, d ):
     return il + "end.png"
   if key == "dead":
     return il + "dead.png"
+  if key == "won":
+    return il + "maincharend.png"
   if key == "goblin":
     return il + "goblin.png"
   if key == "ghost":
