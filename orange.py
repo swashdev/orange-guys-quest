@@ -669,7 +669,8 @@ You've reached the end of the game.\nThanks for playing :-)"
             elif draw and wall.ID in ["Wall","Mover"]:
                 pygame.draw.rect(screen, (255, 255, 255), wall.rect)
             elif draw and wall.ID == "Portal":
-                pygame.draw.rect(screen, (178, 255, 255), wall.rect)
+                pygame.draw.rect(screen, (0,   0,   255), wall.rect)
+                pygame.draw.rect(screen, (0,   0,   0  ), pygame.Rect(wall.rect.x + 4, wall.rect.y + 4, wall.rect.w - 8, wall.rect.h - 8))
 
     player.rect=translate(player.rect)
     tele_rect=translate(tele_rect)
