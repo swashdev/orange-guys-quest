@@ -130,6 +130,7 @@ timeBuffer=0
 tele_rect=pygame.Rect(0,0,16,16)
 
 end_rect=None
+won = False
 
 lvlMessage=""
 
@@ -640,9 +641,7 @@ while running:
           # A special message if you've gotten the sword (the sword doesn't
           # exist yet in the game, so this just displays when you win)
           running = False
-          quitMsg = "Congratulations!  You've recovered the legendary sword \
-of the Dragon King!\n\
-You've reached the end of the game.\nThanks for playing :-)"
+          won = True
     
     # Draw the scene
     screen.fill((0, 0, 0))
@@ -709,5 +708,69 @@ You've reached the end of the game.\nThanks for playing :-)"
 
     if timeBuffer>0:
         timeBuffer-=1
+
+if won:
+
+    screen.fill((0, 0, 0))
+
+    text = font.render( "Congratulatons!", 1, (255, 128, 0) )
+    textpos = text.get_rect( centerx = screen.get_width() / 2 )
+
+    screen.blit( text, textpos )
+
+    text = font.render( "You've recovered the legendary sword", 1, (255, 128, 0) )
+    textpos = text.get_rect( centerx = screen.get_width() / 2 )
+    textpos.y = 16
+
+    screen.blit( text, textpos )
+
+    text = font.render( "of the Dragon King!", 1, (255, 128, 0) )
+    textpos = text.get_rect( centerx = screen.get_width() / 2 )
+    textpos.y = 32
+
+    screen.blit( text, textpos )
+
+    text = font.render( "You've reached the end of the game.", 1, (255, 128, 0) )
+    textpos = text.get_rect( centerx = screen.get_width() / 2 )
+    textpos.y = 64
+
+    screen.blit( text, textpos )
+
+    text = font.render( "Press ESCAPE to finish.", 1, (255, 128, 0) )
+    textpos = text.get_rect( centerx = screen.get_width() / 2 )
+    textpos.y = 80
+
+    screen.blit( text, textpos )
+
+    if USERECTS:
+
+        if BIGPLAYER:
+            pygame.draw.rect( screen, player.color, \
+                    pygame.Rect( screen.get_width() / 2, 128, \
+                                 16, 16 ) )
+        else:
+            pygame.draw.rect( screen, player.color, \
+                    pygame.Rect( screen.get_width() / 2, 128, \
+                                 8, 16 ) )
+
+        pygame.draw.rect( screen, (255, 0, 0), \
+                    pygame.Rect( (screen.get_width() / 2) - 6, 118, \
+                                 8, 16 ) )
+
+    else:
+
+        screen.blit( orange_images.get_sprite( "won" ), \
+                     pygame.Rect( (screen.get_width() / 2) - 6, 118, \
+                                  15, 32 ) )
+
+    pygame.display.flip()
+
+    running = True
+
+    while running:
+
+        for e in pygame.event.get():
+            if e.type == pygame.QUIT or (e.type == pygame.KEYDOWN and e.key == pygame.K_ESCAPE):
+                running = False
 
 print quitMsg
