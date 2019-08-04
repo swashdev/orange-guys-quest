@@ -324,6 +324,7 @@ class Key(Wall):
 
 class Portal(Wall):
     ID="Portal"
+    color = (0, 0, 255)
 
 class Destination(Wall):
     ID="Destination"
@@ -658,19 +659,21 @@ You've reached the end of the game.\nThanks for playing :-)"
         wall.rect = translate(wall.rect)
         if wall.ID in ["Enemy","Mover"]:
             wall.update()
-        if USERECTS==True:
-            pygame.draw.rect(screen,wall.color,wall.rect)
-        else:
-            if wall.ID in ["Door","Key","spike","Enemy"] and draw:
-                if wall.sprite!="HIDDEN":
-                    screen.blit(wall.sprite,(wall.rect.x,wall.rect.y))
-                else:
-                    pygame.draw.rect(screen,(255,255,255),wall.rect)
-            elif draw and wall.ID in ["Wall","Mover"]:
-                pygame.draw.rect(screen, (255, 255, 255), wall.rect)
-            elif draw and wall.ID == "Portal":
-                pygame.draw.rect(screen, (0,   0,   255), wall.rect)
-                pygame.draw.rect(screen, (0,   0,   0  ), pygame.Rect(wall.rect.x + 4, wall.rect.y + 4, wall.rect.w - 8, wall.rect.h - 8))
+        if wall.ID != "Destination":
+            if USERECTS==True or wall.ID == "Portal":
+                pygame.draw.rect(screen,wall.color,wall.rect)
+                if wall.ID == "Portal":
+                    pygame.draw.rect( screen, (0, 0, 0), \
+                    pygame.Rect( wall.rect.x + 4, wall.rect.y + 4, \
+                                 wall.rect.w - 8, wall.rect.h - 8 ) )
+            else:
+                if wall.ID in ["Door","Key","spike","Enemy"] and draw:
+                    if wall.sprite!="HIDDEN":
+                        screen.blit(wall.sprite,(wall.rect.x,wall.rect.y))
+                    else:
+                        pygame.draw.rect(screen,(255,255,255),wall.rect)
+                elif draw and wall.ID in ["Wall","Mover"]:
+                    pygame.draw.rect(screen, (255, 255, 255), wall.rect)
 
     player.rect=translate(player.rect)
     tele_rect=translate(tele_rect)
