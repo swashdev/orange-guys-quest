@@ -36,6 +36,14 @@ command:
 The following command line options can be used to configure your game from the
 command line.  All of these will override the default configuration (see below)
 
+ -? or --help           Runs the game with a set of introductory levels rather
+ --intro                than the standard or user-defined level set.
+
+ --levels               The next argument will be the path to a level file
+
+ -r or -s               Retro or Sprite graphics
+ -a or -b               Ancient or Blocky graphics
+
  -w or -x               the next argument will be the Width of the window in
                         pixels
  -h or -y               the next argument will be the Height of the window in
@@ -43,11 +51,7 @@ command line.  All of these will override the default configuration (see below)
  -W                     the next two values will be the game Window's width
                         and height, respectively
 
- -r or -s               Retro or Sprite graphics
- -a or -b               Ancient or Blocky graphics
  -D                     shows Debug output in the terminal
-
- --levels               The next argument will be the path to a level file
  
 For example, if I want my original block-style graphics with debug output and
 choosing levels from a fresh batch I've just cooked up, I can use this command:
@@ -70,6 +74,11 @@ specify a file that does not exist, the game will complain at you.  You can
 also specify what level file to use in the command line options (see above),
 but this config flag has been included for those times when you just really
 don't feel like typing in the same file name over and over again.
+
+Introduced in the Definitive Edition is the setting INTROLEVELS, which
+contains the path to some introductory levels for players who are new at the
+game.  This value can not be changed, but the levels it represents can be
+accessed with the -?, --help, or --intro command line options.
 
 In version 1.1, the WINDOWS configuration setting was added.  This defaults to
 False.  If set to True, the game will use a backslash (\) instead of a slash

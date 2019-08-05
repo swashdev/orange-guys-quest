@@ -1,0 +1,97 @@
+; <philip@pavlick.net> wrote this file.  Feel free to do whatever you want
+; with it as long as you retain this notice and don't hold me liable for any
+; damages; there is no warranty.  If you really want to pay me back, maybe
+; someday you can buy me some sunflower seeds and we'll call it even.
+; Have fun.
+;  - Philip Pavlick
+
+; This file contains introductory levels for people who need help playing the
+; game; it is not a game manual.  See README.TXT for that.
+;
+; To access this file, run this command:
+;  python orange.py --help
+
+"Use the arrow keys to move."
+WWWWWWWWWWWWWWWWWWWWW
+W                   W
+W       WW          W
+W        WW         W
+W  WWWWWW WW        W
+W        WW         W
+W       WW          W
+W                   W
+D P               E W
+WWWWWWWWWWWWWWWWWWWWW
+;
+"Press UP to jump."
+WWWWWWWWWWWWWWWWWWWWW
+W                   W
+W                   W
+W                   W
+W                   W
+D P       W       E W
+WWWWWWWWWW WWWWWWWWWW
+;
+"Press UP twice to double-jump."
+WWWWWWWWWWWWWWWWWWWWW
+W                   W
+W                  EW
+W                  WW
+W                  W
+D P                W
+WWWWWWWWWWWWWWWWWWWW
+;
+"Press BACKSPACE to retry a level if you get stuck."
+WWWWWWWWWWWWWWWWWWWWW
+W                   W
+W                  EW
+W                  WW
+W                  W
+D P                W
+WWWWWWWWWWWWW      W
+            W      W
+            W      W
+            W      W
+            W      W
+            WWWWWWWW
+
+
+
+
+
+
+
+
+         WWWW WWWW WWWW
+         W    W    W
+         WWW  WWWW W
+         W       W W
+         WWWW WWWW WWWW
+;
+"You're probably wondering what your quest is."
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+D P                            E W
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+;
+"The legendary sword of the Dragon King has been stolen."
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+D P                            A W
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+;
+"The armies of the nefarious Rat King guard it jealously."
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+D P                            E W
+WWWWWWWWWWWWWWWW               WWW
+               W               W
+               W       M       W
+               WWWWWWWWWWWWWWWWW
+;
+"That wasn't the Rat King, that was just some guy."
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+D P                            E W
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+;
+"Regardless, go now, and retrieve the Sword for your King!"
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+D P                            E W
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW

@@ -32,7 +32,11 @@ print "Welcome to Orange Guy's Quest, version 1.3, by Philip Pavlick."
 # this is ./orange-levels.  Don't set it to ./extraLevels.txt because those
 # levels are awful.
 # Can be set with -l <file> or --level <file> in the command line
-LEVELPATH = "orange-levels"
+LEVELPATH = "levels.txt"
+
+# Much like LEVELPATH, determines the path for the introductory levels.
+# Can be accessed with --help, -?, or --intro, but should not be modified.
+INTROLEVELS = "help.txt"
 
 # WINDOWS changes whether \ or / are used for directory trees.  You shouldn't
 # need to change this unless your system is only able to use \.  Most versions
@@ -66,6 +70,8 @@ DEBUG = False
 # Pre-code configuration #
 ##########################
 
+getting_help = False
+
 vars = sys.argv
 vars.pop(0)
 while len( vars ) > 0:
@@ -91,6 +97,9 @@ while len( vars ) > 0:
       LEVELPATH = vars.pop(0)
     else:
       raise SystemExit, "Not enough parameters for --levels: Must specify a file."
+  elif opt in ["-?", "--help", "--levels"]:
+    LEVELPATH = INTROLEVELS
+    getting_help = True
 
 d = '/'
 if WINDOWS == True:
@@ -641,7 +650,8 @@ while running:
           # A special message if you've gotten the sword (the sword doesn't
           # exist yet in the game, so this just displays when you win)
           running = False
-          won = True
+          if not getting_help:
+              won = True
     
     # Draw the scene
     screen.fill((0, 0, 0))
