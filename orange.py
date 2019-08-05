@@ -583,7 +583,7 @@ Levels[0].create()
 #############
 
 running=True
-quitMsg = ""
+quitMsg = "Thanks for playing!"
 
 while running:
     global jumpDY,text,message_delay
@@ -593,7 +593,6 @@ while running:
     for e in pygame.event.get():
         if e.type == pygame.QUIT or (e.type == pygame.KEYDOWN and e.key == pygame.K_ESCAPE):
             running = False
-            quitMsg = "Thanks for playing! :-)"
         elif e.type == pygame.KEYDOWN and e.key == pygame.K_BACKSPACE:
             if DEBUG:
               print "Event: Level reset"

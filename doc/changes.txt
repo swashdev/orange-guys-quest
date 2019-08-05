@@ -4,6 +4,7 @@ DEFINITIVE EDITION:
    old-levels.txt
  - Created a set of "introductory levels" which can be accessed via the
    command line using -?, --help, or --intro
+ - The thank-you message now always displays upon exit.
 
 VERSION 1.3:
 
