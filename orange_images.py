@@ -1,6 +1,6 @@
 # Copyright (c) 2011-2019 Philip Pavlick
 # 
-# <philip@pavlick.net> wrote this file.  Feel free to do whatever you want
+# <swashdev@pm.me> wrote this file.  Feel free to do whatever you want
 # with it as long as you retain this notice and don't hold me liable for any
 # damages; there is no warranty.  If you really want to pay me back, maybe
 # someday you can buy me some sunflower seeds and we'll call it even.
