@@ -501,6 +501,10 @@ message:\n\"" + self.Message + "\""
                 if col=="M":
                     mine_rect=Enemy(x,y,16,16,2,type="rat")
                     walls.append(mine_rect)
+                if col=="k":
+                    mine_rect=Enemy(x,y,16,16,2,type="ratking")
+                    mine_rect.species = "ratking"
+                    walls.append(mine_rect)
                 if col=="B":
                     mine_rect=Enemy(x,y,16,16,2,type="bat")
                     walls.append(mine_rect)
@@ -674,10 +678,18 @@ while running:
                     pygame.draw.rect( screen, (0, 0, 0), \
                     pygame.Rect( wall.rect.x + 4, wall.rect.y + 4, \
                                  wall.rect.w - 8, wall.rect.h - 8 ) )
+                if wall.ID == "Enemy":
+                    if wall.species == "ratking":
+                        pygame.draw.rect( screen, (255, 255, 0), \
+                        pygame.Rect( wall.rect.x + 4, wall.rect.y - 4, 8, 4 ) )
+
             else:
                 if wall.ID in ["Door","Key","spike","Enemy"] and draw:
                     if wall.sprite!="HIDDEN":
-                        screen.blit(wall.sprite,(wall.rect.x,wall.rect.y))
+                        if wall.ID == "Enemy" and wall.species == "ratking":
+                            screen.blit(wall.sprite,(wall.rect.x,wall.rect.y - 1))
+                        else:
+                            screen.blit(wall.sprite,(wall.rect.x,wall.rect.y))
                     else:
                         pygame.draw.rect(screen,(255,255,255),wall.rect)
                 elif draw and wall.ID in ["Wall","Mover"]:

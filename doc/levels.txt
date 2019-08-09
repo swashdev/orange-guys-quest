@@ -24,7 +24,7 @@ before or after the first semicolon, even a space, the game will assume that it
 is a comment line.
 
 The following symbols are recognized as valid by the level generator:
- MSPKREATt12346789!@#$^&*(D
+ MkSPKREATt12346789!@#$^&*(D
 
 Every level must contain *one* P, *one* E or A, and at least one W.
 
@@ -36,6 +36,7 @@ A marks a special Exit (really it's just a different sprite) for the end game.
 W marks a Wall.
 
 M marks a Monster.
+k marks the rat King, which is a special monster.
 
 S marks a set of Spikes.
 
