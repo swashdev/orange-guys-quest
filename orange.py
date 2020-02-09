@@ -811,7 +811,7 @@ if won:
 
     screen.blit( text, textpos )
 
-    text = font.render( "pavlick.net", 1, (255, 128, 0) )
+    text = font.render( "www.pavlick.net", 1, (255, 128, 0) )
     textpos = text.get_rect( centerx = screen.get_width() / 2 )
     textpos.y = 344
 
