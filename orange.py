@@ -37,7 +37,7 @@ print "Welcome to Orange Guy's Quest, version 1.3, by Philip Pavlick."
 # this is ./orange-levels.  Don't set it to ./extraLevels.txt because those
 # levels are awful.
 # Can be set with -l <file> or --level <file> in the command line
-LEVELPATH = "levels.txt"
+LEVELPATH = "orange-levels"
 
 # Much like LEVELPATH, determines the path for the introductory levels.
 # Can be accessed with --help, -?, or --intro, but should not be modified.
