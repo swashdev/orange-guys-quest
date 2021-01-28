@@ -44,6 +44,8 @@ command line.  All of these will override the default configuration (see below)
  -r or -s               Retro or Sprite graphics
  -a or -b               Ancient or Blocky graphics
 
+ -B                     Activates Big Player mode
+
  -w or -x               the next argument will be the Width of the window in
                         pixels
  -h or -y               the next argument will be the Height of the window in
