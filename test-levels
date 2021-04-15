@@ -1,3 +1,9 @@
+; This is free and unencumbered software released into the public domain.
+; Anyone is free to copy, modify, publish, use, compile, sell, or distribute
+; this software, for any purpose, commercial or non-commercial, and by any
+; means.
+; For more information, please refer to UNLICENSE or to <http://unlicense.org>
+
 "test level for teleporters"
 PT        t t E
 W         WWWWW

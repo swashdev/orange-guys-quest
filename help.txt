@@ -1,16 +1,8 @@
-; Copyright (c) 2011-2020 Philip Pavlick
-; 
-; <swashdev@pm.me> wrote this file.  Feel free to do whatever you want
-; with it so long as you don't hold me liable for any damages; there is no
-; warranty.  In exchange, if you ever find yourself thinking "I can't do
-; this," or "I'll never be that good," I want you to stop, take a deep breath,
-; and say "Yes I can." Then prove you can. Don't prove it to me; don't prove
-; it to your friends and family; don't prove it to your boss; prove it to
-; yourself. This software is already free; now free yourself.
-;   - Philip Pavlick
-; 
-; For more information about the rationale behind this licensing, see
-; https://www.pavlick.net/fyl/
+; This is free and unencumbered software released into the public domain.
+; Anyone is free to copy, modify, publish, use, compile, sell, or distribute
+; this software, for any purpose, commercial or non-commercial, and by any
+; means.
+; For more information, please refer to UNLICENSE or to <http://unlicense.org>
 
 ; This file contains introductory levels for people who need help playing the
 ; game; it is not a game manual.  See README.TXT for that.

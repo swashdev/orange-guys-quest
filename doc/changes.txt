@@ -1,6 +1,6 @@
 DEFINITIVE EDITION:
 
- - Re-licensed under the "Free Yourself" License
+ - This is now public domain software.
  - Moved all of the old levels (except for test levels) into a single file,
    old-levels.txt
  - Created a set of "introductory levels" which can be accessed via the
