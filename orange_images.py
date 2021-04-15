@@ -13,14 +13,14 @@ SPRITES = { "player":None,"key":None,"key2":None,"door":None,"spike":None, \
           }
 
 # Returns a pygame image
-def get_sprite( key, d = '/', DEBUG = False ):
+def get_sprite( key, DEBUG = False ):
   global SPRITES
   if SPRITES[key] != None:
     return SPRITES[key]
   else:
     if DEBUG:
       print "Load: " + key + " sprite"
-    SPRITES[key] = image.load( get_image_link( key, d ) )
+    SPRITES[key] = image.load( get_image_link( key ) )
     if DEBUG:
       print "Work: Converting " + key + " sprite"
     if key != "dead":
@@ -30,8 +30,8 @@ def get_sprite( key, d = '/', DEBUG = False ):
     SPRITES[key].convert_alpha()
     return SPRITES[key]
 
-def get_image_link( key, d ):
-  il = "Images" + d
+def get_image_link( key ):
+  il = "Images/"
   if key == "player":
     return il + "maincharsprite.png"
   if key == "key":

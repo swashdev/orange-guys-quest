@@ -35,11 +35,6 @@ LEVELPATH = "orange-levels"
 # Can be accessed with --help, -?, or --intro, but should not be modified.
 INTROLEVELS = "help.txt"
 
-# WINDOWS changes whether \ or / are used for directory trees.  You shouldn't
-# need to change this unless your system is only able to use \.  Most versions
-# of windows will run just fine with only /.
-WINDOWS = False
-
 # Set USERECTS to True to force the old-school Atari2600-style blocky
 # graphics or False to use the Retro pixel graphics.  Any other value will
 # give a prompt.
@@ -98,10 +93,6 @@ while len( vars ) > 0:
     LEVELPATH = INTROLEVELS
     getting_help = True
 
-d = '/'
-if WINDOWS == True:
-  d = '\\'
-
 while USERECTS not in [True,False]:
     print "Use [R]etro or [A]ncient graphics? [R/A]"
     USERECTS=raw_input("[\'\b").upper()
@@ -141,7 +132,7 @@ won = False
 lvlMessage=""
 
 # Important: See ``fonts/readme-proggy.txt'' for the Proggy license
-font = pygame.font.Font("fonts" + d + "ProggySquareSZ.ttf", 24)
+font = pygame.font.Font("fonts/ProggySquareSZ.ttf", 24)
 text = None
 textpos = None
 message_delay = 0
@@ -168,7 +159,7 @@ class Player(object):
         else:
           self.rect = pygame.Rect(32, 32, 16, 16)
         if not USERECTS:
-          self.sprite = orange_images.get_sprite( "player", d, DEBUG )
+          self.sprite = orange_images.get_sprite( "player", DEBUG )
 
     def move(self, dx, dy):
         if not self.dead: 
@@ -306,7 +297,7 @@ class Door(Wall):
             self.Color="green"
             self.color=(0,0,255)
             if not USERECTS:
-              self.sprite = orange_images.get_sprite( "door", d, DEBUG )
+              self.sprite = orange_images.get_sprite( "door", DEBUG )
         self.rect=pygame.Rect(pos[0],pos[1],16,16)
         self.openx=openx
         self.openy=openy
@@ -319,12 +310,12 @@ class Key(Wall):
         self.Color=color
         if color=="red":
             if not USERECTS:
-              self.sprite = orange_images.get_sprite( "key2", d, DEBUG )
+              self.sprite = orange_images.get_sprite( "key2", DEBUG )
             self.color=(255,255,0)
             self.Color="red"
         else:
             if not USERECTS:
-              self.sprite = orange_images.get_sprite( "key", d, DEBUG )
+              self.sprite = orange_images.get_sprite( "key", DEBUG )
             self.Color="green"
             self.color=(0,255,0)
         super(Key,self).__init__(pos)
@@ -372,9 +363,9 @@ class Enemy(Mover):
         if not USERECTS:
           if type == "random":
               self.sprite = orange_images.get_sprite( \
-                              random.choice( ["rat","bat"] ), d, DEBUG )
+                              random.choice( ["rat","bat"] ), DEBUG )
           else:
-              self.sprite = orange_images.get_sprite( type.lower(), d, DEBUG )
+              self.sprite = orange_images.get_sprite( type.lower(), DEBUG )
 
 class Spike(Enemy):
     ID="spike"
@@ -415,14 +406,14 @@ message:\n\"" + self.Message + "\""
                 if col == "E":
                     end_rect = pygame.Rect(x, y, 16, 16)
                     if not USERECTS:
-                      lvlExit = orange_images.get_sprite( "exit", d, DEBUG )
+                      lvlExit = orange_images.get_sprite( "exit", DEBUG )
                     end_rect_offset = 0
                     if DEBUG:
                       print "Event: Place ending object at", x, y
                 if col=="A":
                     end_rect = pygame.Rect(x + 4, y, 8, 16)
                     if not USERECTS:
-                      lvlExit = orange_images.get_sprite( "end", d, DEBUG )
+                      lvlExit = orange_images.get_sprite( "end", DEBUG )
                     end_rect_offset = -4
                     if DEBUG:
                       print "Event: Place ending object at", x, y
@@ -560,8 +551,8 @@ for level_string in levels:
     Levels.append( Level( level_string ) )
     
 if len( Levels ) <= 0:
-  raise SystemExit, "Did not find any valid levels in ." + d + LEVELPATH + \
-                    "\nCheck ." + d + "doc" + d + "levels.txt for help"
+  raise SystemExit, "Did not find any valid levels in ./" + LEVELPATH + \
+                    "\nCheck ./doc/levels.txt for help"
 
 player = Player() # Create the player
 
@@ -703,7 +694,7 @@ while running:
           screen.blit(player.sprite, \
                         (player.rect.x + player_rect_offset,player.rect.y))
         else:
-          screen.blit(orange_images.get_sprite( "dead", d, DEBUG ), \
+          screen.blit(orange_images.get_sprite( "dead", DEBUG ), \
                         (player.rect.x + player_rect_offset,player.rect.y))
     else:
         pygame.draw.rect(screen,(255,0,0),end_rect)
