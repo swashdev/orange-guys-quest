@@ -1,5 +1,4 @@
-Thank you for downloading Orange Guy's Quest, version 1.3, by
-Philip Pavlick.
+Thank you for downloading Orange Guy's Quest Classic, by Philip Pavlick.
 
  -- Introduction --
 Orange Guy's Quest is an old game project that I wrote while learning to
@@ -8,8 +7,8 @@ several years later while I was going through old programming projects.  I
 found that I still liked it, so I decided to patch it up and release it to the
 world.  Hopefully as time comes I'll have time to further improve upon it.
 
-Version 1.0 and 1.1 both require Python and Pygame, but have no further
-dependencies.  If memory serves me correctly they were originally written for
+Orange Guy's Quest Classic requires Python and Pygame, but has no further
+dependencies.  If memory serves me correctly it was originally written for
 Python 2.7 and should be compatible with this version of Python.  No word yet
 on whether it is forwards-compatible with Python 3, but I wouldn't think so.
 
@@ -21,9 +20,7 @@ by opening doors (blue) with keys (green) while avoiding enemies and spikes
 open hidden doors.
 
 Most of the instructions are given in the first few levels.  The BACKSPACE key
-is used to restart the level; falling off the level won't do this for you.  In
-the classic versions of the game, being killed by an enemy or a spike will
-kill the game immediately.
+is used to restart the level; falling off the level won't do this for you.
 
  -- Running the Game --
 After you have Python and Pygame installed, you should be able to run Orange
@@ -71,31 +68,25 @@ You can make some configuration changes by altering the source code in
 orange.py.  You will find the configuration options after scrolling past the
 license information message.
 
-As of version 1.1, LEVELFILE specifes where the game can find levels.  If you
-specify a file that does not exist, the game will complain at you.  You can
-also specify what level file to use in the command line options (see above),
-but this config flag has been included for those times when you just really
-don't feel like typing in the same file name over and over again.
+LEVELFILE specifes where the game can find levels.  If you specify a file that
+does not exist, the game will complain at you.  You can also specify what
+level file to use in the command line options (see above), but this config
+flag has been included for those times when you just really don't feel like
+typing in the same file name over and over again.
 
-Introduced in the Definitive Edition is the setting INTROLEVELS, which
-contains the path to some introductory levels for players who are new at the
-game.  This value can not be changed, but the levels it represents can be
-accessed with the -?, --help, or --intro command line options.
+INTROLEVELS contains the path to some introductory levels for players who are
+new at the game.  This value can not be changed, but the levels it represents
+can be accessed with the -?, --help, or --intro command line options.
 
-In version 1.1, the WINDOWS configuration setting was added.  This defaults to
-False.  If set to True, the game will use a backslash (\) instead of a slash
-(/) to go down directory trees.  You shouldn't need to change this, but it's
-included "just in case."
+USERECTS configures whether what graphics the game will display.  If set to
+True, it will give you the original block graphics that I used when I first
+started coding the game.  Any other value will give a prompt allowing you to
+choose.
 
-The next configuration option is USERECTS.  This defaults to False, which will
-give you some pleasing retro pixel art graphics.  If you set USERECTS to True,
-it will give you the original block graphics that I used when I first started
-coding the game.  Any other value will give a prompt allowing you to choose.
-
-WIN_X and WIN_Y, introduced in version 1.3, set the width and height of the
-game window, respectively.  Note that the game does not scale the sprites
-relative to window size; such a feature was attempted at one point but it made
-the entire game a framerate disaster for some reason.
+WIN_X and WIN_Y set the width and height of the game window, respectively.
+Note that the game does not scale the sprites relative to window size; such a
+feature was attempted at one point but it made the entire game a framerate
+disaster for some reason.
 
 In theory, blocky graphics are faster because they don't require reading image
 files (aside from images files for the text) but modern computers should be

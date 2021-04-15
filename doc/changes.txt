@@ -1,4 +1,4 @@
-DEFINITIVE EDITION:
+ORANGE GUY'S QUEST CLASSIC:
 
  - This is now public domain software.
  - Moved all of the old levels (except for test levels) into a single file,
@@ -7,6 +7,7 @@ DEFINITIVE EDITION:
    command line using -?, --help, or --intro
  - The thank-you message now always displays upon exit.
  - Added the Rat King.
+ - Removed the unnecessary WINDOWS config variable.
 
 VERSION 1.3:
 
